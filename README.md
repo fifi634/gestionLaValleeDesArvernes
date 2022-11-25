@@ -1,2 +1,2 @@
-Management software for kennel
+Management software for kennel. 
 Project in progress
