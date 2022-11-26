@@ -1,11 +1,9 @@
 <script setup>
-import createDog from '/@/components/createDog.vue';
-
+import createClient from '/@/components/createClient.vue';
 </script>
 
 <template>
-  <createDog />
-
+  <createClient />
 </template>
 
 <style>
