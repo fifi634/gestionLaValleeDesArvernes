@@ -1,5 +1,5 @@
 <script lang='ts' setup>
-import {ref} from 'vue';
+import { ref } from 'vue';
 
 // Get form input
 const name = ref();
@@ -8,17 +8,21 @@ const phone = ref();
 const email = ref();
 const adress = ref();
 
-// Create info input object
-const client = {
-    name: name.value,
-    firstname: firstname.value,
-    phone: phone.value,
-    email: email.value,
-    adress: adress.value,
-};
+// Construct client object for database
+function addClient() {
+    const client = {
+        name: name,
+        firstname: firstname,
+        phone: phone,
+        email: email,
+        adress: adress,
+    }
+    return client;
+}
 
 function sendClient() {
-    console.log("j'ai récupéré " + name.value)
+    const rep = addClient();
+    console.log("client créé : ", rep );
 }
 </script>
 

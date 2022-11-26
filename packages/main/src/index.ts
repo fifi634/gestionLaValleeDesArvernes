@@ -68,7 +68,7 @@ if (import.meta.env.PROD) {
 /**
  * Sequelize database connection
  */
-const sequelize = require('../../database/config/sequelize.js');
+const sequelize = require('../../database/config/dbmgr.js');
 const clients = require('../../database/models/client');
 const booking = require('../../database/models/booking');
 const dog = require('../../database/models/dog');
