@@ -1,30 +1,30 @@
-<script lang="ts" setup>
+<script setup>
+    import { colors } from '../../color.config.js';
 </script>
 
 <template>
-    <div class="client-container">
-        <h2 class="titre">Liste des clients</h2>
+    <div class="widgetContainer">
+        <h2 class="widget-title">Liste des clients</h2>
         <p class="text"> Display Client </p>
-    </div>
-    
+    </div>    
 </template>
 
 <style>
-    .client-container {
+    .widgetContainer {
         padding: 10px;
         margin: 10px;
-        background: #F6F8FF;
-        
+        background: v-bind('colors.secondary');
+
         border: 1px black solid;
         border-radius: 20px; 
     }
 
-    .titre {
+    .widgetTitle {
         font-family: inter-regular, sans-serif;
         font-size: 1.2em;
     }
 
-    .text {
+    .widgetText {
         font-family: inter-light, sans-serif;
         font-size: 1em;
     }

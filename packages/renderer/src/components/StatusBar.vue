@@ -1,32 +1,13 @@
 <script lang="ts" setup>
-import {ref} from 'vue'
+    import { ref } from 'vue';
+    import { colors } from '../../color.config.js';
 
-const currentPath = ref(window.location.hash);
-window.addEventListener('hashchange', () => {
-    const lien = window.location.hash
-    
-    currentPath.value = lien.slice(2)
-    });
-
-   
-  
-    // import { ref, computed } from 'vue';
-    // import Home from '/@/App.vue';
-
-    // // Simple router
-    // const routes = {
-    //     '/home':Home,
-    // }
-
-    // const currentPath = ref(window.location.hash);
-
-    // window.addEventListener('hashchange', () => {
-    // currentPath.value = window.location.hash
-    // });
-
-    // const currentView = computed(() => {
-    //     return routes[currentPath.value.slice(1) || '/'] || NotFound;
-    // });
+    // Display component in status bar
+    const currentPath = ref(window.location.hash);
+    window.addEventListener('hashchange', () => {
+        const link = window.location.hash; 
+        currentPath.value = link.slice(2);
+    }); 
 </script>
 
 <template>
@@ -34,10 +15,6 @@ window.addEventListener('hashchange', () => {
         <div>
             <p class="status">{{currentPath}}</p>
         </div>
-        <div>
-            <img class='home-button' src="../../icon/home-white.png" alt="Retour à l'accueil" href="#/home" />
-        </div>
-
     </div>
 </template>
 
@@ -50,7 +27,7 @@ window.addEventListener('hashchange', () => {
         width: auto;
         height: 82px;
 
-        background: #3A4C8A;
+        background: v-bind('colors.primary');
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
@@ -62,7 +39,8 @@ window.addEventListener('hashchange', () => {
     }
 
     .home-button {
+        background: url('../../icon/home-white.png');
         width: 30px;
-        margin: 25px;
+        margin: 12px;
     }
 </style>

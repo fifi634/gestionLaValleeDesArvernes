@@ -27,7 +27,8 @@
 </script>
 
 <template>
-    <h1>Création client</h1>
+    <div class="client-container">
+        <h1 class="titre-formulaire">Création client</h1>
         <div class="input-container">
             <label for="fistname" class="label">Prénom</label>
             <input v-model="firstname" id="firstname" required />
@@ -51,10 +52,19 @@
         <div>
             <button @click="sendClient()">Créer</button>
         </div>
-    <p> Le nom du client est {{ name }}</p> 
+    </div>
+    
 </template>
 
 <style>
+    .client-container {
+        margin: 50px;
+    }
+
+    .titre-formulaire {
+        font-family: inter-regular, sans-serif;
+        font-size: 2em;
+    }
     .input-container {
         margin-bottom: 10px;
         display: flex;

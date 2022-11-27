@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 import StatusBar from '/@/components/StatusBar.vue';
 import Menu from '/@/components/Menu.vue';
 </script>

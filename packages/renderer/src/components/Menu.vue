@@ -2,6 +2,7 @@
     import { ref, computed } from 'vue';
     import AddClient from './AddClient.vue';
     import DisplayClient from './DisplayClient.vue';
+    import { colors } from '../../color.config.js';
 
     /**
      * Router
@@ -22,7 +23,7 @@
     });
 
     const currentView = computed(() => {
-        return routes[currentPath.value.slice(1) || '/'] || '/';
+        return routes[currentPath.value.slice(1) || '/Accueil'] || '/Accueil';
     });
 
     /*** */
@@ -35,28 +36,45 @@
 </script>
 
 <template>
-    <div>
-        <a href='#/Client'>Création d'un propriétaire</a>
-        <a href='#/Accueil'>Accueil</a>
-        <!-- <AddClient /> -->
+    <div class="menuContainer">
+        <a href='#/Accueil' class="menuButton">Accueil</a>
+        <img src="../../icon/fast-forward-black.png" class="next" alt="" />
+        <a href='#/Client' class="menuButton">Création d'un propriétaire</a>        
     </div>
   <component :is="currentView" />
 </template>
 
 <style>
-    a {
+    .menuContainer {
+        display: flex;
+        align-items: center;
+    }
+
+    .menuButton {
         display:inline-block;
+        text-decoration : none;
+
         font-family: inter-regular, sans-serif;
         font-size: 1em;
+        color: v-bind('colors.font');
         
-        min-width: 200px;
-        min-height: 80px;
-        margin: 20px;
-        padding: 25px 40px;
-
-        background: #F6F8FF;
+        padding: 15px 40px;
+        margin: 15px 30px;
+        
+        background: v-bind('colors.secondary');
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border: 1px black solid;
-        border-radius: 20px;    
+        border-radius: 20px;
+    }
+
+    .menuButton:hover {
+        background-color: v-bind('colors.primary');
+        filter: invert(1);
+    }
+
+    .next {
+        align-items: center;
+        width: 30px;
+        height: 30px;
     }
 </style>
