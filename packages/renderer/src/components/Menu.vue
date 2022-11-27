@@ -1,14 +1,14 @@
 <script setup>
     import { ref, computed } from 'vue';
     import AddClient from './AddClient.vue';
-    import DisplayClient from './DisplayClient.vue'
+    import DisplayClient from './DisplayClient.vue';
 
     /**
-     * Simple router
+     * Router
      */
     const routes = {
-        '/addClient': AddClient,
-        '/': DisplayClient
+        '/Client': AddClient,
+        '/Accueil': DisplayClient
     }
 
     /**
@@ -24,15 +24,28 @@
     const currentView = computed(() => {
         return routes[currentPath.value.slice(1) || '/'] || '/';
     });
+
+    /*** */
+
+    // When click on "Création d'un propriétaire"
+    let toggleAddClient = ref(false);
+    function addClientButton() {
+        toggleAddClient = ref(true);
+    }
 </script>
 
 <template>
-        <button href="/addClient">Création d'un propriétaire</button>
+    <div>
+        <a href='#/Client'>Création d'un propriétaire</a>
+        <a href='#/Accueil'>Accueil</a>
+        <!-- <AddClient /> -->
+    </div>
   <component :is="currentView" />
 </template>
 
 <style>
-    button {
+    a {
+        display:inline-block;
         font-family: inter-regular, sans-serif;
         font-size: 1em;
         

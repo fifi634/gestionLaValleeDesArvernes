@@ -1,4 +1,15 @@
 <script lang="ts" setup>
+import {ref} from 'vue'
+
+const currentPath = ref(window.location.hash);
+window.addEventListener('hashchange', () => {
+    const lien = window.location.hash
+    
+    currentPath.value = lien.slice(2)
+    });
+
+   
+  
     // import { ref, computed } from 'vue';
     // import Home from '/@/App.vue';
 
@@ -21,7 +32,7 @@
 <template>
     <div class="accueil">
         <div>
-            <p class="status">Accueil</p>
+            <p class="status">{{currentPath}}</p>
         </div>
         <div>
             <img class='home-button' src="../../icon/home-white.png" alt="Retour à l'accueil" href="#/home" />
