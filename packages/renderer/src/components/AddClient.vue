@@ -1,29 +1,29 @@
-<script lang='ts' setup>
-import { ref } from 'vue';
+<script lang="ts" setup>
+    import { ref } from 'vue';
 
-// Get form input
-const name = ref();
-const firstname = ref();
-const phone = ref();
-const email = ref();
-const adress = ref();
+    // Get form input
+    const name = ref();
+    const firstname = ref();
+    const phone = ref();
+    const email = ref();
+    const adress = ref();
 
-// Construct client object for database
-function addClient() {
-    const client = {
-        name: name,
-        firstname: firstname,
-        phone: phone,
-        email: email,
-        adress: adress,
+    // Construct client object for database
+    function addClient() {
+        const client = {
+            name: name,
+            firstname: firstname,
+            phone: phone,
+            email: email,
+            adress: adress,
+        }
+        return client;
     }
-    return client;
-}
 
-function sendClient() {
-    const rep = addClient();
-    console.log("client créé : ", rep );
-}
+    function sendClient() {
+        const rep = addClient();
+        console.log("client créé : ", rep );
+    }
 </script>
 
 <template>
@@ -55,12 +55,12 @@ function sendClient() {
 </template>
 
 <style>
-.input-container {
-    margin-bottom: 10px;
-    display: flex;
-}
+    .input-container {
+        margin-bottom: 10px;
+        display: flex;
+    }
 
-.label {
-    margin-right: 10px;
-}
+    .label {
+        margin-right: 10px;
+    }
 </style>
