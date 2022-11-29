@@ -1,3 +1,4 @@
+// const dbLink = require('../renderer/src/config');
 const Sequelize = require('sequelize');
 
 // Sequelize parameters (sqlite)
