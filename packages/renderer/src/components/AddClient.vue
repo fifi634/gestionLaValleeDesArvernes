@@ -58,15 +58,17 @@ function sendClient() {
 <style>
 .client-container {
     margin: 50px;
+    display: flex;
+    flex-direction: column;
 }
 
 .titre-formulaire {
-    font-family: inter-regular, sans-serif;
     font-size: 2em;
 }
+
 .input-container {
     margin-bottom: 10px;
-    display: flex;
+    justify-content: center;
 }
 
 .label {

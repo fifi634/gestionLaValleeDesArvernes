@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import StatusBar from '/@/components/StatusBar.vue';
-import Menu from '/@/components/Menu.vue';
+import Body from '/@/components/Body.vue';
 </script>
 
 <template>
 <div class="container">
   <StatusBar />
-  <Menu />
+  <Body />
 </div>
 </template>
 
@@ -29,5 +29,9 @@ import Menu from '/@/components/Menu.vue';
 .container {
   background: #ECECFA;
   padding-bottom: 5px;
+}
+
+p, h1, h2, h3, h4, a, button, input, label, span {
+  font-family: inter-regular, sans-serif;
 }
 </style>

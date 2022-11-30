@@ -1,6 +1,6 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require('../dbmgr');
-const emmergency = require('../models/emmergency');
+const emmergency = require('./emmergency');
 
 const dog = sequelize.define('dog', {
   name: {

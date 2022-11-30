@@ -2,7 +2,6 @@
 import { ref, computed } from 'vue';
 import AddClient from './AddClient.vue';
 import DisplayClient from './DisplayClient.vue';
-// import colors from '../config';
 
 /**
  * Router
@@ -25,14 +24,6 @@ currentPath.value = window.location.hash
 const currentView = computed(() => {
     return routes[currentPath.value.slice(1) || '/Accueil'] || '/Accueil';
 });
-
-/*** */
-
-// When click on "Création d'un propriétaire"
-let toggleAddClient = ref(false);
-function addClientButton() {
-    toggleAddClient = ref(true);
-}
 </script>
 
 <template>

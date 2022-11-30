@@ -68,7 +68,7 @@ if (import.meta.env.PROD) {
 /**
  * Sequelize database connection
  */
-const sequelize = require('../../database/dbmgr.js');
+const sequelize = require('../../database/dbmgr');
 const clients = require('../../database/models/client');
 const booking = require('../../database/models/booking');
 const dog = require('../../database/models/dog');
@@ -80,7 +80,7 @@ try {
   booking.sync();
   dog.sync();
   emmergency.sync();
-  console.log('Connection has been established successfully.');
+  console.log('Database connection has been established successfully.');
 } catch (error) {
   console.error('Unable to connect to the database:', error);
 }
