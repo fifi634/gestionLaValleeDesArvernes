@@ -1,8 +1,4 @@
 const {getClients} = require('../../database/crudClient');
 
-
-export const displayClients = async() => { 
-    console.log('preload : ', await getClients())
-    
-    return await getClients();
-}
+// Get clients from database by Sequelize
+export const displayClients = async() => { return await getClients() }

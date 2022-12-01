@@ -1,8 +1,12 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
+const props = defineProps({
+    name:String
+})
+
 // Get form input
-const name = ref();
+const name = ref(props.name);
 const firstname = ref();
 const phone = ref();
 const email = ref();

@@ -1,23 +1,39 @@
-<script setup lang="ts">
+<script setup>
+import OneClient from './oneClient.vue';
+import {ref,onBeforeMount} from 'vue';
 import { displayClients } from '#preload';
 
+// Get client.id from button
+const idActive = ref();
+const displayOneClient = ref(false);
+const clients = ref();
+
 // Get data from preload
-let clients = [];
-const clientsData = displayClients();
-clientsData.then(res => res.forEach(elem => {clients.push(elem)}));
-console.log('log client : ', clients)
+onBeforeMount(()=>{
+    displayClients().then((res => clients.value = res));
+});
+
+const setIdActive = (id) =>{
+    displayOneClient.value  = true;
+    idActive.value = id;
+}
 </script>
 
 <template>
 <div class="widgetContainer">
     <h2 class="widget-title">Liste des clients</h2>
     <div id="test"></div>
-    <ul>
-        <li v-for="client in clients">
-            <a href="#" alt="{{client.dataValues.firstname + ' ' + client.dataValues.name}}">{{(client.dataValues.firstname + ' ' + client.dataValues.name)}}</a>
-        </li>
-    </ul>
-</div>    
+    <div v-if="!(displayOneClient)">
+        <ul>
+            <li v-for="client in clients">
+                <a href='#' @click="setIdActive(client.dataValues.id)">"{{client.dataValues.firstname + ' ' + client.dataValues.name}}"</a>
+            </li>
+        </ul>
+    </div>
+    <div v-else>
+        <oneClient :id="idActive" />
+    </div>
+</div> 
 </template>
 
 <style>

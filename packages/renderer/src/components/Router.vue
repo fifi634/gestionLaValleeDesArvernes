@@ -1,38 +1,16 @@
 <script setup>
 import { ref, computed } from 'vue';
-import AddClient from './AddClient.vue';
-import DisplayClient from './DisplayClient.vue';
-
-/**
- * Router
- */
-const routes = {
-    '/Client': AddClient,
-    '/Accueil': DisplayClient
-}
-
-/**
- * Update the current component state by listening to browser hashchange events 
- * or using the History API.
- */
-const currentPath = ref(window.location.hash);
-
-window.addEventListener('hashchange', () => {
-currentPath.value = window.location.hash
-});
-
-const currentView = computed(() => {
-    return routes[currentPath.value.slice(1) || '/Accueil'] || '/Accueil';
-});
+import { RouterLink } from 'vue-router';
 </script>
 
 <template>
 <div class="menuContainer">
-    <a href='#/Accueil' class="menuButton">Accueil</a>
+    <RouterLink to='/' class="menuButton">Accueil</RouterLink>
     <img src="../../icon/fast-forward-black.png" class="next" alt="" />
-    <a href='#/Client' class="menuButton">Création d'un propriétaire</a>        
+    <RouterLink to='/client' class="menuButton">Création d'un propriétaire</RouterLink>
 </div>
-<component :is="currentView" />
+<router-view></router-view>
+<!-- <component :is="currentView" /> -->
 </template>
 
 <style>
