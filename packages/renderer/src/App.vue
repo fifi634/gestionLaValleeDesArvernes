@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+// Components link
 import StatusBar from '/@/components/StatusBar.vue';
 import Body from '/@/components/Body.vue';
 </script>

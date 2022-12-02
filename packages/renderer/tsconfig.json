@@ -22,6 +22,6 @@
     "src/**/*.tsx",
     "types/**/*.d.ts",
     "../../types/**/*.d.ts"
-  ],
+, "src/router.js"  ],
   "exclude": ["**/*.spec.ts", "**/*.test.ts"]
 }

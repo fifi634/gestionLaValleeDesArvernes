@@ -1,6 +1,5 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
-// import colors from '../config';
 
 // Display component in status bar
 const currentPath = ref(window.location.hash);

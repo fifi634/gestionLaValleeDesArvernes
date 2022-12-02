@@ -11,7 +11,6 @@ import { RouterLink } from 'vue-router';
 const clients = ref();
 onBeforeMount(()=>{
     displayClients().then((res => clients.value = res));
-    console.log(clients)
 });
 
 // const setIdActive = (id) =>{
