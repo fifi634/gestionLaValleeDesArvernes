@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import StatusBar from '/@/components/StatusBar.vue';
-import Menu from '/@/components/Menu.vue';
+import Body from '/@/components/Body.vue';
 </script>
 
 <template>
 <div class="container">
   <StatusBar />
-  <Menu />
+  <Body />
 </div>
 </template>
 

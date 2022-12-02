@@ -1,13 +1,39 @@
 <script setup>
-// import colors from '../config';
+import {ref, onBeforeMount} from 'vue';
+import { displayClients } from '#preload';
+import { RouterLink } from 'vue-router';
+
+// // Get client.id from button
+// const idActive = ref();
+// const displayOneClient = ref(false);
+
+// Get data from preload
+const clients = ref();
+onBeforeMount(()=>{
+    displayClients().then((res => clients.value = res));
+});
+
+// const setIdActive = (id) =>{
+//     displayOneClient.value  = true;
+//     idActive.value = id;
+// }
 </script>
+
 
 <template>
 <div class="widgetContainer">
     <h2 class="widget-title">Liste des clients</h2>
-    <p class="text"> Display Client </p>
-</div>    
+    <div id="test"></div>
+    <ul>
+        <li v-for="client in clients">
+            <RouterLink to='/client'>
+                {{client.dataValues.firstname + ' ' + client.dataValues.name}}
+            </RouterLink>
+        </li>
+    </ul>
+</div> 
 </template>
+
 
 <style>
 .widgetContainer {
