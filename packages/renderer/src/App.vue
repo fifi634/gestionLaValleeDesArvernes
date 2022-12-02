@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 // Components link
 import StatusBar from '/@/components/StatusBar.vue';
-import Router from '/@/components/Router.vue';
+import Body from '/@/components/Body.vue';
 </script>
 
 <template>
 <div class="container">
   <StatusBar />
-  <Router />
+  <Body />
 </div>
 </template>
 

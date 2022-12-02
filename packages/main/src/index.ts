@@ -1,4 +1,4 @@
-import { app } from 'electron';
+import { app, ipcMain } from 'electron';
 import './security-restrictions';
 import { restoreOrCreateWindow } from '/@/mainWindow';
 
@@ -65,6 +65,9 @@ if (import.meta.env.PROD) {
     .catch(e => console.error('Failed check updates:', e));
 }
 
+  /************************************************************************ */
+
+  
 /**
  * Sequelize database connection
  */

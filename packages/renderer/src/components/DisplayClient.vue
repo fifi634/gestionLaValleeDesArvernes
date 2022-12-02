@@ -1,40 +1,39 @@
 <script setup>
-import OneClient from './oneClient.vue';
-import {ref,onBeforeMount} from 'vue';
+import {ref, onBeforeMount} from 'vue';
 import { displayClients } from '#preload';
+import { RouterLink } from 'vue-router';
 
-// Get client.id from button
-const idActive = ref();
-const displayOneClient = ref(false);
-const clients = ref();
+// // Get client.id from button
+// const idActive = ref();
+// const displayOneClient = ref(false);
 
 // Get data from preload
+const clients = ref();
 onBeforeMount(()=>{
     displayClients().then((res => clients.value = res));
 });
 
-const setIdActive = (id) =>{
-    displayOneClient.value  = true;
-    idActive.value = id;
-}
+// const setIdActive = (id) =>{
+//     displayOneClient.value  = true;
+//     idActive.value = id;
+// }
 </script>
+
 
 <template>
 <div class="widgetContainer">
     <h2 class="widget-title">Liste des clients</h2>
     <div id="test"></div>
-    <div v-if="!(displayOneClient)">
-        <ul>
-            <li v-for="client in clients">
-                <a href='#' @click="setIdActive(client.dataValues.id)">"{{client.dataValues.firstname + ' ' + client.dataValues.name}}"</a>
-            </li>
-        </ul>
-    </div>
-    <div v-else>
-        <oneClient :id="idActive" />
-    </div>
+    <ul>
+        <li v-for="client in clients">
+            <RouterLink to='/client'>
+                {{client.dataValues.firstname + ' ' + client.dataValues.name}}
+            </RouterLink>
+        </li>
+    </ul>
 </div> 
 </template>
+
 
 <style>
 .widgetContainer {

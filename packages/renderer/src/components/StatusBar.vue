@@ -3,13 +3,11 @@ import { ref } from 'vue';
 
 // Display component in status bar
 const currentPath = ref(window.location.hash);
-// const 
-// if (currentPath == '#/') 
-// console.log(currentPath)
+
 window.addEventListener('hashchange', () => {
     const link = window.location.hash; 
     currentPath.value = link.slice(2);
-}); 
+});
 </script>
 
 <template>
