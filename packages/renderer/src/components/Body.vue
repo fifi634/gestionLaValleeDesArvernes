@@ -5,9 +5,9 @@ import { RouterLink } from 'vue-router';
 
 <template>
 <div class="menuContainer">
-    <RouterLink to='/' class="menuButton">Accueil</RouterLink>
+    <RouterLink to="/" class="menuButton">Accueil</RouterLink>
     <img src="../../icon/fast-forward-black.png" class="next" alt="" />
-    <RouterLink to='/client' class="menuButton">Création d'un propriétaire</RouterLink>
+    <RouterLink to="/client" class="menuButton">Création d'un propriétaire</RouterLink>
 </div>
 <router-view></router-view>
 </template>

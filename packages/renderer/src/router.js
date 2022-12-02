@@ -7,7 +7,9 @@ const routes = [
   {path: '/client', component: Client},
 ];
 
-export const router = createRouter({
+const router = createRouter({
   history: createWebHashHistory(),
   routes,
 });
+
+export default router;

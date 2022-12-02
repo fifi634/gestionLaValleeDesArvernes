@@ -30,4 +30,12 @@ import Body from '/@/components/Body.vue';
   background: #ECECFA;
   padding-bottom: 5px;
 }
+
+p, a, input, button {
+  font-family: inter-light, sans-serif;
+}
+
+h1, h2, h3,h4, h5, h6, label {
+  font-family: inter-regular, sans-serif;
+}
 </style>
