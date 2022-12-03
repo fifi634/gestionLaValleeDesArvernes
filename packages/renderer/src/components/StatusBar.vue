@@ -6,7 +6,7 @@ const currentPath = ref(window.location.hash);
 
 window.addEventListener('hashchange', () => {
     const link = window.location.hash; 
-    currentPath.value = link.slice(2);
+    currentPath.value = link;
 });
 </script>
 
@@ -14,6 +14,9 @@ window.addEventListener('hashchange', () => {
 <div class="accueil">
     <div>
         <p class="status">{{currentPath}}</p>
+    </div>
+    <div>
+        <button class="return" @click="$router.back()">Retour</button>
     </div>
 </div>
 </template>
@@ -38,9 +41,7 @@ window.addEventListener('hashchange', () => {
     padding: 25px 40px;
 }
 
-.home-button {
-    background: url('../../icon/home-white.png');
-    width: 30px;
+.return {
     margin: 12px;
 }
 </style>

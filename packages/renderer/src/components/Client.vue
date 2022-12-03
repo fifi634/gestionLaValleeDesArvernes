@@ -7,14 +7,15 @@ const props = defineProps({
     name:String
 });
 
-let newClient;
+// Get client id
+const clientId = ref(window.location.hash.slice(9))
+console.log('id ', clientId)
 
 // Get data from preload
 const clients = ref();
 onBeforeMount(()=>{
     displayClients().then((res => {
         clients.value = res
-        
     }));
 });
 
@@ -26,6 +27,7 @@ const email = ref();
 const adress = ref();
 
 // When you're clicking on 'Créer' button
+let newClient;
 const addClient = () =>{
     newClient = {
         name: name.value,
@@ -44,23 +46,25 @@ const addClient = () =>{
 <div class="client-container">
     <h1 class="titre-formulaire">Création client</h1>
     <div class="input-container">
-        <label for="fistname" class="label">Prénom</label>
+        <label for="fistname" class="label">Prénom : </label>
+        <span>{{ }}</span>
         <input v-model="firstname" id="firstname" required />
+
     </div>
     <div class="input-container">
-        <label for="name" class="label">Nom</label>
+        <label for="name" class="label">Nom : </label>
         <input v-model="name" id="name" />
     </div>
     <div class="input-container">
-        <label for="phone" class="label">Téléphone</label>
+        <label for="phone" class="label">Téléphone : </label>
         <input type="tel" v-model="phone" id="phone" pattern="[0-9]{10}" />
     </div>
     <div class="input-container">
-        <label for="email" class="label">E-mail</label>
+        <label for="email" class="label">E-mail : </label>
         <input type="email" v-model="email" id="email" />
     </div>
     <div class="input-container">
-        <label for="adress" class="label">Adresse</label>
+        <label for="adress" class="label">Adresse : </label>
         <textarea v-model="adress" id="adress"/>
     </div>
     <div>

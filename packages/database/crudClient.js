@@ -6,7 +6,6 @@ exports.getClients = async () => {
 };
 
 exports.addClient = async newClient => {
-  // console.log(newClient);
   client.create({
     name: newClient.name,
     firstname: newClient.firstname,
@@ -14,4 +13,8 @@ exports.addClient = async newClient => {
     email: newClient.email,
     adress: newClient.adress,
   });
+};
+
+exports.findClient = async searchId => {
+  await client.findOne({where: {id: searchId}});
 };

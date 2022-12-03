@@ -7,16 +7,18 @@ import { RouterLink } from 'vue-router';
 // const idActive = ref();
 // const displayOneClient = ref(false);
 
+// const setIdActive = (id) =>{
+//     displayOneClient.value  = true;
+//     idActive.value = id;
+// }
+
 // Get data from preload
 const clients = ref();
 onBeforeMount(()=>{
     displayClients().then((res => clients.value = res));
 });
 
-// const setIdActive = (id) =>{
-//     displayOneClient.value  = true;
-//     idActive.value = id;
-// }
+// let path = '/Client/' + 
 </script>
 
 
@@ -25,11 +27,12 @@ onBeforeMount(()=>{
     <h2>Liste des clients</h2>
     <div id="test"></div>
     <ul>
-        <li v-for="client in clients">
-            <RouterLink to='/client'>
-                {{client.dataValues.firstname + ' ' + client.dataValues.name}}
+        <li v-for="client in clients" :key="client.dataValues.id">
+            <RouterLink :to="'/client/' + client.dataValues.id" >
+                {{client.dataValues.id + ' ' + client.dataValues.firstname + ' ' + client.dataValues.name}}
             </RouterLink>
         </li>
+        <!-- :to="/client/{{client.dataValues.id}} -->
     </ul>
 </div> 
 </template>
