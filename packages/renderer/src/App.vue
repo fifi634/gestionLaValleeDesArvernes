@@ -32,7 +32,7 @@ import Body from '/@/components/Body.vue';
   padding-bottom: 5px;
 }
 
-p, a, input, button {
+p, a, input, button, span {
   font-family: inter-light, sans-serif;
 }
 
