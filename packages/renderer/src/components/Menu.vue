@@ -9,7 +9,7 @@ import { RouterLink } from 'vue-router';
     <img src="../../icon/fast-forward-black.png" class="next" alt="" />
     <RouterLink to="/client" class="menuButton">Création d'un propriétaire</RouterLink>
 </div>
-<router-view></router-view>
+<!-- <router-view></router-view> -->
 </template>
 
 <style>

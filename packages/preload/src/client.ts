@@ -1,4 +1,4 @@
-const { getClients, addClient, findClient } = require('../../database/crudClient');
+const { getClients, addClient, findClient, setClient } = require('../../database/crudClient');
 
 
 // Get clients from database
@@ -9,3 +9,6 @@ export const createClient = async(data) => { return await addClient(data) };
 
 // Get client from database
 export const searchClient = async(data) => { return await findClient(data) };
+
+// Modify client
+export const modifyClient = async(data) => { return await setClient(data) };

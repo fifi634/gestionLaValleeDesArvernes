@@ -3,14 +3,6 @@ import {ref, onBeforeMount} from 'vue';
 import { displayClients } from '#preload';
 import { RouterLink } from 'vue-router';
 
-// // Get client.id from button
-// const idActive = ref();
-// const displayOneClient = ref(false);
-
-// const setIdActive = (id) =>{
-//     displayOneClient.value  = true;
-//     idActive.value = id;
-// }
 
 // Get data from preload
 const clients = ref();

@@ -1,19 +1,7 @@
 <script lang="ts" setup>
-import { ref, onBeforeMount, defineComponent } from 'vue';
-import { createClient, searchClient } from '#preload';
+import { ref } from 'vue';
+import { createClient } from '#preload';
 
-
-// Get client
-let client = ref();
-const clientId = ref(window.location.hash.slice(9));
-
-onBeforeMount(()=>{
-    searchClient(clientId.value).then(res => { client.value = res; console.log(res) });
-});
-
-const props = defineProps({
-    name:String
-});
 
 // Get form input
 const name = ref();
@@ -39,7 +27,6 @@ const addClient = () =>{
 
 
 <template>
-<div v-if="client == null">
     <div class="client-container">
         <h1 class="titre-formulaire">Création client</h1>
         <div class="input-container">
@@ -67,37 +54,7 @@ const addClient = () =>{
         <div>
             <button @click="addClient()">Créer</button>
         </div>
-    </div>  
-</div>
-<div v-else>
-    <div class="client-container">
-        <h1 class="titre-formulaire">Fiche client</h1>
-        <div class="input-container">
-            <label for="fistname" class="label">Prénom : </label>
-            <span class="data" id="firstname">{{ client.dataValues.firstname }}</span>
-        </div>
-        <div class="input-container">
-            <label for="name" class="label">Nom : </label>
-            <span class="data" id="name">{{ client.dataValues.name }}</span>
-        </div>
-        <div class="input-container">
-            <label for="phone" class="label">Téléphone : </label>
-            <span class="data" id="phone">{{ client.dataValues.phone }}</span>
-        </div>
-        <div class="input-container">
-            <label for="email" class="label">E-mail : </label>
-            <span class="data" id="email">{{ client.dataValues.email }}</span>
-        </div>
-        <div class="input-container">
-            <label for="address" class="label">Adresse : </label>
-            <span class="data" id="address">{{ client.dataValues.address }}</span>
-        </div>
-        <div>
-            <button @click="">Modifier</button>
-        </div>
-    </div>  
-
-</div>  
+    </div>
 </template>
 
 
@@ -127,9 +84,5 @@ const addClient = () =>{
 
 .label {
     margin-right: 10px;
-}
-
-.data {
-    margin: 5px;
 }
 </style>

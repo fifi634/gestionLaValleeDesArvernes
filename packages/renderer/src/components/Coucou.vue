@@ -5,7 +5,7 @@ import { displayClients, searchClient } from '#preload';
 const display = window.location.href
 let client = ref();
 const clientId = ref(window.location.hash.slice(9));
-console.log(client);
+
 onBeforeMount(()=>{
     searchClient(clientId).then((res => {
         client = res
