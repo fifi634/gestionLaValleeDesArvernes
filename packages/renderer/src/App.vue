@@ -41,8 +41,30 @@ h1, h2, h3,h4, h5, h6, label {
   font-family: inter-regular, sans-serif;
 }
 
-button { 
-  margin: 5px;
-  padding: 5px;
+button {
+    font-family: inter-semiBold, sans-serif;
+    font-size: 1em;
+    color: #000000;
+    
+    padding: 7px 20px;
+    margin: 10px 5px;
+    
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px black solid;
+    border-radius: 20px;
 }
+
+button:hover {
+    background-color: #3A4C8A;
+    filter: invert(1);
+    cursor: pointer;
+}
+
+button:active {
+  background-color: #3A4C8A;
+  color: white;
+  filter: inherit;
+}
+
 </style>

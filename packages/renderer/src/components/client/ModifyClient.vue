@@ -1,20 +1,29 @@
-<script lang="ts" setup>
+<script setup>
 import { ref, onBeforeMount } from 'vue';
 import { searchClient, modifyClient } from '#preload';
 
 // Get client
-let client = ref();
+const getClient = ref();
 onBeforeMount(()=>{
     const clientId = ref(window.location.hash.slice(9));
-    searchClient(clientId.value).then(res => { client.value = res });
+    searchClient(clientId.value).then(res => { getClient.value = res });
 });
 
+
 // Get form input
-const name = ref();
-const firstname = ref();
-const phone = ref();
-const email = ref();
-const adress = ref();
+let name = ref();
+let firstname = ref();
+let phone = ref();
+let email = ref();
+let adress = ref();
+if (getClient) {
+    console.log(getClient.value)
+    name = ref();
+    firstname = ref();
+    phone = ref();
+    email = ref();
+    adress = ref();
+}
 
 // When you're clicking on 'Sauvegarder les modifications' button
 let editClient;
@@ -37,12 +46,12 @@ const closeModif = () => { modifToggle.value = false};
 
 
 <template>
-    <div class="client-container" v-if="client">
+    <div class="client-container" v-if="modifyClient">
         <h1 class="titre-formulaire">Modification client</h1>
         <div class="input-container">
             <label for="fistname" class="label">Prénom : </label>
             <span class="data"></span>
-            <input v-model="firstname" id="firstname" placeholder="{{client.dataValues.firstname}}" required />
+            <input v-model="firstname" id="firstname" required />
 
         </div>
         <div class="input-container">

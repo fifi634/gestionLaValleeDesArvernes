@@ -22,7 +22,7 @@ import { RouterLink } from 'vue-router';
     display:inline-block;
     text-decoration : none;
 
-    font-family: inter-regular, sans-serif;
+    font-family: inter-semiBold, sans-serif;
     font-size: 1em;
     color: #000000;
     
@@ -38,6 +38,12 @@ import { RouterLink } from 'vue-router';
 .menuButton:hover {
     background-color: #3A4C8A;
     filter: invert(1);
+}
+
+.menuButton:active {
+  background-color: #3A4C8A;
+  color: white;
+  filter: inherit;
 }
 
 .next {
