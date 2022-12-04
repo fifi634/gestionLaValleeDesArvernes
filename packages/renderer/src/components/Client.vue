@@ -1,22 +1,27 @@
 <script lang="ts" setup>
 import { ref, onBeforeMount, defineComponent } from 'vue';
-import { displayClients, createClient } from '#preload';
+import { displayClients, createClient, searchClient } from '#preload';
 
+
+// Get client
+// let client = ref();
+// const clientId = ref(window.location.hash.slice(9));
+// client = ref(searchClient(clientId.value).then(res => { client.value = res, console.log('res', res) }));
+
+// Get clients from preload
+// const clients = ref();
+let client = ref();
+const clientId = ref(window.location.hash.slice(9));
+
+onBeforeMount(()=>{
+    // displayClients().then(res => { clients.value = res });
+    searchClient(clientId.value).then(res => { client.value = res;
+    console.log(res) });
+});
+// console.log('res', client.value.dataValues)
 
 const props = defineProps({
     name:String
-});
-
-// Get client id
-const clientId = ref(window.location.hash.slice(9))
-console.log('id ', clientId)
-
-// Get data from preload
-const clients = ref();
-onBeforeMount(()=>{
-    displayClients().then((res => {
-        clients.value = res
-    }));
 });
 
 // Get form input
@@ -47,7 +52,7 @@ const addClient = () =>{
     <h1 class="titre-formulaire">Création client</h1>
     <div class="input-container">
         <label for="fistname" class="label">Prénom : </label>
-        <span>{{ }}</span>
+        <span>{{ client.dataValues.name }}</span>
         <input v-model="firstname" id="firstname" required />
 
     </div>

@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 import {ref, onBeforeMount} from 'vue';
 import { displayClients } from '#preload';
 import { RouterLink } from 'vue-router';
@@ -17,8 +17,6 @@ const clients = ref();
 onBeforeMount(()=>{
     displayClients().then((res => clients.value = res));
 });
-
-// let path = '/Client/' + 
 </script>
 
 
@@ -32,7 +30,6 @@ onBeforeMount(()=>{
                 {{client.dataValues.id + ' ' + client.dataValues.firstname + ' ' + client.dataValues.name}}
             </RouterLink>
         </li>
-        <!-- :to="/client/{{client.dataValues.id}} -->
     </ul>
 </div> 
 </template>

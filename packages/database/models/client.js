@@ -16,7 +16,7 @@ const client = sequelize.define('client', {
   email: {
     type: DataTypes.TEXT,
   },
-  adress: {
+  address: {
     type: DataTypes.TEXT,
   },
   payStatut: {

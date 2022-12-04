@@ -16,5 +16,5 @@ exports.addClient = async newClient => {
 };
 
 exports.findClient = async searchId => {
-  await client.findOne({where: {id: searchId}});
+  return await client.findOne({where: {id: searchId}});
 };
