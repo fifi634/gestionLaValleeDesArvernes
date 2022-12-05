@@ -39,6 +39,7 @@ p, a, input, button, span {
 
 h1, h2, h3,h4, h5, h6, label {
   font-family: inter-regular, sans-serif;
+  white-space: nowrap;
 }
 
 button {
@@ -49,7 +50,7 @@ button {
     padding: 7px 20px;
     margin: 10px 5px;
     
-    background: #FFFFFF;
+    background: #efeeee;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border: 1px black solid;
     border-radius: 20px;
@@ -67,4 +68,13 @@ button:active {
   filter: inherit;
 }
 
+.actionButton {
+    color: white;
+    background-color: #3A4C8A;
+}
+
+.actionButton:active {
+    background-color: white;
+    color: black;
+}
 </style>

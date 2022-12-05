@@ -1,17 +1,16 @@
 <script lang='ts' setup>
 import { ref, onBeforeMount } from 'vue';
-import { displayClients, searchClient } from '#preload';
+import { searchClient } from '#preload';
 
-const display = window.location.href
+const display = window.location.href;
 let client = ref();
 const clientId = ref(window.location.hash.slice(9));
 
 onBeforeMount(()=>{
     searchClient(clientId).then((res => {
-        client = res
+        client.value = res;
     }));
 });
-
 </script>
 
 <template>

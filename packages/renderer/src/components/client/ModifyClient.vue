@@ -3,10 +3,10 @@ import { ref, onBeforeMount } from 'vue';
 import { searchClient, modifyClient } from '#preload';
 
 // Get client
-const getClient = ref();
+const client = ref();
 onBeforeMount(()=>{
     const clientId = ref(window.location.hash.slice(9));
-    searchClient(clientId.value).then(res => { getClient.value = res });
+    searchClient(clientId.value).then(res => { client.value = res });
 });
 
 
@@ -16,8 +16,8 @@ let firstname = ref();
 let phone = ref();
 let email = ref();
 let adress = ref();
-if (getClient) {
-    console.log(getClient.value)
+if (client) {
+    console.log(client)
     name = ref();
     firstname = ref();
     phone = ref();
@@ -26,9 +26,9 @@ if (getClient) {
 }
 
 // When you're clicking on 'Sauvegarder les modifications' button
-let editClient;
+const editClient = ref();
 const setClient = () =>{
-    editClient = {
+    editClient.value = {
         name: name.value,
         firstname: firstname.value,
         phone: phone.value,
@@ -38,10 +38,6 @@ const setClient = () =>{
     console.log('client modified : ', editClient)
     modifyClient(editClient);
 }
-
-// When you're cliking on "Fermer" button
-let modifToggle = ref(true);
-const closeModif = () => { modifToggle.value = false};
 </script>
 
 
@@ -71,8 +67,7 @@ const closeModif = () => { modifToggle.value = false};
             <textarea v-model="adress" id="adress"/>
         </div>
         <div>
-            <button @click="setClient()">Sauvegarder les modifications</button>
-            <button @click="closeModif()">Fermer</button>
+            <button @click="setClient()" class="actionButton">Sauvegarder les modifications</button>
         </div>
     </div>
 </template>
@@ -98,11 +93,18 @@ const closeModif = () => { modifToggle.value = false};
 }
 
 .input-container {
-    margin-bottom: 10px;
-    justify-content: center;
+    display: flex;
+    margin: 10px 0; 
+    justify-content: space-between;   
+    align-items: center;
 }
 
 .label {
     margin-right: 10px;
+}
+
+input, textarea {
+    border: 1px black solid;
+    border-radius: 5px;
 }
 </style>

@@ -52,7 +52,7 @@ const addClient = () =>{
             <textarea v-model="adress" id="adress"/>
         </div>
         <div>
-            <button @click="addClient()">Créer</button>
+            <button class="actionButton" @click="addClient()">Créer</button>
         </div>
     </div>
 </template>

@@ -12,8 +12,8 @@ onBeforeMount(()=>{
 });
 
 // When you're clicking on 'Modifier' button
-let modifyToggle = ref(false);
-const modifyClient = () => { modifyToggle.value = true }
+let isActive = ref(false);
+const modifyClient = () => { isActive.value = !isActive.value }
 </script>
 
 
@@ -42,10 +42,13 @@ const modifyClient = () => { modifyToggle.value = true }
             <span id="address">{{client.dataValues.address}}</span>
         </div>
         <div>
-            <button @click="modifyClient()">Modifier</button>
+            <button class="button" :class="{active:isActive}" @click="modifyClient()">
+                <span v-if="isActive">Fermer le panneau de modification</span>
+                <span v-else>Ouvrir le panneau de modification</span>
+            </button>
         </div>
     </div>   
-    <div v-if="modifyToggle">
+    <div v-if="isActive">
         <ModifyClient />
     </div>
 </div>
@@ -74,5 +77,16 @@ const modifyClient = () => { modifyToggle.value = true }
 
 .titre-formulaire {
     font-size: 2em;
+}
+
+.button {
+    font-weight: 700;
+}
+
+.active {
+    background-color: #3A4C8A;
+    color: white;
+    filter: invert(1);
+    font-weight: 400;
 }
 </style>

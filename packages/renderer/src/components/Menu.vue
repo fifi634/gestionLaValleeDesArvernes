@@ -9,7 +9,6 @@ import { RouterLink } from 'vue-router';
     <img src="../../icon/fast-forward-black.png" class="next" alt="" />
     <RouterLink to="/client" class="menuButton">Création d'un propriétaire</RouterLink>
 </div>
-<!-- <router-view></router-view> -->
 </template>
 
 <style>
@@ -29,8 +28,8 @@ import { RouterLink } from 'vue-router';
     padding: 15px 40px;
     margin: 15px 30px;
     
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: white;
+    box-shadow: 0px 4px 4px rgba(66, 64, 64, 0.25);
     border: 1px black solid;
     border-radius: 20px;
 }
