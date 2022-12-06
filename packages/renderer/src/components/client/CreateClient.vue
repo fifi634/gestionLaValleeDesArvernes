@@ -19,8 +19,8 @@ const addClient = () =>{
         phone: phone.value,
         email: email.value,
         adress: adress.value,
-    }
-    console.log('client created : ', newClient)
+    };
+    console.log('client created : ', newClient);
     createClient(newClient);
 }
 </script>

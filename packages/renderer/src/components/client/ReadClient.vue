@@ -89,4 +89,8 @@ const modifyClient = () => { isActive.value = !isActive.value }
     filter: invert(1);
     font-weight: 400;
 }
+
+.active:hover {
+    font-weight: 600;
+}
 </style>

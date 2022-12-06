@@ -57,9 +57,10 @@ button {
 }
 
 button:hover {
-    background-color: #3A4C8A;
-    filter: invert(1);
-    cursor: pointer;
+  cursor: pointer;
+  transition: 0.5s;
+  background-color: #3A4C8A;
+  filter: invert(1);
 }
 
 button:active {
@@ -76,5 +77,9 @@ button:active {
 .actionButton:active {
     background-color: white;
     color: black;
+}
+
+input {
+  padding: 5px;
 }
 </style>

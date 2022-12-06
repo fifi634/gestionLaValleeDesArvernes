@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onBeforeMount } from 'vue';
 import { searchClient, modifyClient } from '#preload';
 
@@ -6,7 +6,9 @@ import { searchClient, modifyClient } from '#preload';
 const client = ref();
 onBeforeMount(()=>{
     const clientId = ref(window.location.hash.slice(9));
-    searchClient(clientId.value).then(res => { client.value = res });
+    searchClient(clientId.value).then(res => {
+        client.value = res.dataValues;
+    });
 });
 
 
@@ -16,58 +18,51 @@ let firstname = ref();
 let phone = ref();
 let email = ref();
 let adress = ref();
-if (client) {
-    console.log(client)
-    name = ref();
-    firstname = ref();
-    phone = ref();
-    email = ref();
-    adress = ref();
-}
+
 
 // When you're clicking on 'Sauvegarder les modifications' button
-const editClient = ref();
+let editClient = ref();
 const setClient = () =>{
-    editClient.value = {
+    editClient = ref({
         name: name.value,
         firstname: firstname.value,
         phone: phone.value,
         email: email.value,
         adress: adress.value,
-    }
-    console.log('client modified : ', editClient)
-    modifyClient(editClient);
+    })
+    console.log('client modified : ', editClient.value)
+    modifyClient(JSON.stringify(editClient.value));
 }
 </script>
 
 
 <template>
-    <div class="client-container" v-if="modifyClient">
+    <div class="client-container">
         <h1 class="titre-formulaire">Modification client</h1>
         <div class="input-container">
             <label for="fistname" class="label">Prénom : </label>
             <span class="data"></span>
-            <input v-model="firstname" id="firstname" required />
+            <input v-model="firstname" id="firstname" :placeholder="client ? client.firstname : ''" required />
 
         </div>
         <div class="input-container">
             <label for="name" class="label">Nom : </label>
-            <input v-model="name" id="name" />
+            <input v-model="name" id="name" :placeholder="client ? client.name : ''"/>
         </div>
         <div class="input-container">
             <label for="phone" class="label">Téléphone : </label>
-            <input type="tel" v-model="phone" id="phone" pattern="[0-9]{10}" />
+            <input type="tel" v-model="phone" id="phone" pattern="[0-9]{10}" :placeholder="client ? client.phone : ''"/>
         </div>
         <div class="input-container">
             <label for="email" class="label">E-mail : </label>
-            <input type="email" v-model="email" id="email" />
+            <input type="email" v-model="email" id="email" :placeholder="client ? client.email : ''"/>
         </div>
         <div class="input-container">
             <label for="adress" class="label">Adresse : </label>
-            <textarea v-model="adress" id="adress"/>
+            <textarea v-model="adress" id="adress" :placeholder="client ? client.name : ''"/>
         </div>
         <div>
-            <button @click="setClient()" class="actionButton">Sauvegarder les modifications</button>
+            <button @click="setClient" class="actionButton">Sauvegarder les modifications</button>
         </div>
     </div>
 </template>

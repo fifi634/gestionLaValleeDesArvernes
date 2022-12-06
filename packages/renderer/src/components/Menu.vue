@@ -1,5 +1,4 @@
-<script setup>
-import { ref, computed } from 'vue';
+<script lang="ts" setup>
 import { RouterLink } from 'vue-router';
 </script>
 
@@ -37,6 +36,7 @@ import { RouterLink } from 'vue-router';
 .menuButton:hover {
     background-color: #3A4C8A;
     filter: invert(1);
+    transition: 0.5s;
 }
 
 .menuButton:active {

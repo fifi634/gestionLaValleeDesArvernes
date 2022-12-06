@@ -1,7 +1,7 @@
 import CreateClient from './components/client/CreateClient.vue';
 import ReadClient from './components/client/ReadClient.vue';
 import WidgetClient from './components/WidgetClient.vue';
-import Coucou from './components/Coucou.vue';
+// import Coucou from './components/Coucou.vue';
 import {createRouter, createWebHashHistory} from 'vue-router';
 
 const routes = [
