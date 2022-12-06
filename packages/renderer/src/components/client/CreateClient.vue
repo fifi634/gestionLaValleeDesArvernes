@@ -22,7 +22,7 @@ const addClient = () =>{
     };
     console.log('client created : ', newClient);
     createClient(newClient);
-}
+};
 </script>
 
 

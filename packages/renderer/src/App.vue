@@ -5,11 +5,11 @@ import Menu from '/@/components/Menu.vue';
 </script>
 
 <template>
-<div class="container">
-  <StatusBar />
-  <Menu />
-  <router-view></router-view>
-</div>
+  <div class="container">
+    <StatusBar />
+    <Menu />
+    <router-view></router-view>
+  </div>
 </template>
 
 <style>

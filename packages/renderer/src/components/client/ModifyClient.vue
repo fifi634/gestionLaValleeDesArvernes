@@ -29,10 +29,10 @@ const setClient = () =>{
         phone: phone.value,
         email: email.value,
         adress: adress.value,
-    })
-    console.log('client modified : ', editClient.value)
+    });
+    console.log('client modified : ', editClient.value);
     modifyClient(JSON.stringify(editClient.value));
-}
+};
 </script>
 
 

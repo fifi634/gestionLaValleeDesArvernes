@@ -11,14 +11,14 @@ window.addEventListener('hashchange', () => {
 </script>
 
 <template>
-<div class="accueil">
-    <div>
-        <p class="status">{{currentPath}}</p>
+    <div class="accueil">
+        <div>
+            <p class="status">{{currentPath}}</p>
+        </div>
+        <div>
+            <button class="return" @click="$router.back()">Retour</button>
+        </div>
     </div>
-    <div>
-        <button class="return" @click="$router.back()">Retour</button>
-    </div>
-</div>
 </template>
 
 <style>

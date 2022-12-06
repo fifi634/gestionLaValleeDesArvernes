@@ -8,51 +8,50 @@ import ModifyClient from './ModifyClient.vue';
 let client = ref();
 onBeforeMount(()=>{
     const clientId = ref(window.location.hash.slice(9));
-    searchClient(clientId.value).then(res => { client.value = res });
+    searchClient(clientId.value).then(res => { client.value = res; });
 });
 
 // When you're clicking on 'Modifier' button
 let isActive = ref(false);
-const modifyClient = () => { isActive.value = !isActive.value }
+const modifyClient = () => { isActive.value = !isActive.value; };
 </script>
 
 
 <template>
-<div class="groupModify-container">
-    <div class="client-container" v-if="client">
-        <h1 class="titre">Fiche client</h1>
-        <div class="input-container">
-            <label for="fistname" class="label">Prénom : </label>
-            <span class="data" id="firstname">{{client.dataValues.firstname}}</span>
+    <div class="groupModify-container">
+        <div class="client-container" v-if="client">
+            <h1 class="titre">Fiche client</h1>
+            <div class="input-container">
+                <label for="fistname" class="label">Prénom : </label>
+                <span class="data" id="firstname">{{client.dataValues.firstname}}</span>
+            </div>
+            <div class="input-container">
+                <label for="name" class="label">Nom : </label>
+                <span class="data" id="name">{{client.dataValues.name}}</span>
+            </div>
+            <div class="input-container">
+                <label for="phone" class="label">Téléphone : </label>
+                <span class="data" id="phone">{{client.dataValues.phone}}</span>
+            </div>
+            <div class="input-container">
+                <label for="email" class="label">E-mail : </label>
+                <span class="data" id="email">{{client.dataValues.email}}</span>
+            </div>
+            <div class="input-container">
+                <label for="address" class="label">Adresse : </label>
+                <span id="address">{{client.dataValues.address}}</span>
+            </div>
+            <div>
+                <button class="button" :class="{active:isActive}" @click="modifyClient()">
+                    <span v-if="isActive">Fermer le panneau de modification</span>
+                    <span v-else>Ouvrir le panneau de modification</span>
+                </button>
+            </div>
+        </div>   
+        <div v-if="isActive">
+            <ModifyClient />
         </div>
-        <div class="input-container">
-            <label for="name" class="label">Nom : </label>
-            <span class="data" id="name">{{client.dataValues.name}}</span>
-        </div>
-        <div class="input-container">
-            <label for="phone" class="label">Téléphone : </label>
-            <span class="data" id="phone">{{client.dataValues.phone}}</span>
-        </div>
-        <div class="input-container">
-            <label for="email" class="label">E-mail : </label>
-            <span class="data" id="email">{{client.dataValues.email}}</span>
-        </div>
-        <div class="input-container">
-            <label for="address" class="label">Adresse : </label>
-            <span id="address">{{client.dataValues.address}}</span>
-        </div>
-        <div>
-            <button class="button" :class="{active:isActive}" @click="modifyClient()">
-                <span v-if="isActive">Fermer le panneau de modification</span>
-                <span v-else>Ouvrir le panneau de modification</span>
-            </button>
-        </div>
-    </div>   
-    <div v-if="isActive">
-        <ModifyClient />
     </div>
-</div>
-
 </template>
 
 
