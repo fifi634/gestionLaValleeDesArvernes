@@ -24,12 +24,28 @@ exports.findClient = async searchId => {
   return await client.findOne({where: {id: searchId}});
 };
 
-exports.setClient = async data => {
-  client.set({
-    name: data.name,
-    firstname: data.firstname,
-    phone: data.phone,
-    email: data.email,
-    address: data.address,
-  });
+exports.setClient = async (data2, id) => {
+  let data = JSON.parse(data2);
+  return client
+    .update(
+      {
+        name: data._value.name,
+        firstname: data._value.firstname,
+        phone: data._value.phone,
+        email: data._value.email,
+        address: data._value.address,
+      },
+      {
+        where: {id: id},
+      },
+    )
+    .then(res => {
+      return res;
+    })
+    .catch(err => console.log(err));
+};
+
+exports.deleteClient = async id => {
+  const delClient = findClient(id);
+  return client.destroy(delClient);
 };

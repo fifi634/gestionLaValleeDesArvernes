@@ -14,7 +14,7 @@ onBeforeMount(()=>{
 
 <template>
     <div class="widgetContainer">
-        <h2>Liste des clients</h2>
+        <h2>Liste des propriétaires</h2>
         <ul class="client-list">
             <li v-for="client in clients" :key="client.dataValues.id">
                 <RouterLink :to="'/client/' + client.dataValues.id" class="client" >

@@ -18,9 +18,9 @@ const modifyClient = () => { isActive.value = !isActive.value; };
 
 
 <template>
-    <div class="groupModify-container">
-        <div class="client-container" v-if="client">
-            <h1 class="titre">Fiche client</h1>
+    <div class="allReadClient-container">
+        <div class="readClient-container" v-if="client">
+            <h1 class="titre">Fiche propriétaire</h1>
             <div class="input-container">
                 <label for="fistname" class="label">Prénom : </label>
                 <span class="data" id="firstname">{{client.dataValues.firstname}}</span>
@@ -41,7 +41,7 @@ const modifyClient = () => { isActive.value = !isActive.value; };
                 <label for="address" class="label">Adresse : </label>
                 <span id="address">{{client.dataValues.address}}</span>
             </div>
-            <div>
+            <div class="ctrlReadClient">
                 <button class="button" :class="{active:isActive}" @click="modifyClient()">
                     <span v-if="isActive">Fermer le panneau de modification</span>
                     <span v-else>Ouvrir le panneau de modification</span>
@@ -56,15 +56,14 @@ const modifyClient = () => { isActive.value = !isActive.value; };
 
 
 <style>
-.groupModify-container {
+.allReadClient-container {
     display: flex;
 }
 
-.client-container {
+.readClient-container {
     margin: 50px;
     padding: 20px;
-    min-width: 300px;
-    width: 30%;
+    max-width: 300px;
 
     display: flex;
     flex-direction: column;
@@ -78,8 +77,10 @@ const modifyClient = () => { isActive.value = !isActive.value; };
     font-size: 2em;
 }
 
-.button {
+.ctrlReadClient {
+    display: flex;
     font-weight: 700;
+    justify-content: center;
 }
 
 .active {
@@ -91,5 +92,6 @@ const modifyClient = () => { isActive.value = !isActive.value; };
 
 .active:hover {
     font-weight: 600;
+    transition: 0s;
 }
 </style>

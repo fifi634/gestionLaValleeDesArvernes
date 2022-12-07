@@ -45,6 +45,7 @@ window.addEventListener('hashchange', () => {
 
 .return {
     margin: 30px;
-    background-color: white;
+    background-color: rgb(153, 17, 17);
+    color: white;
 }
 </style>

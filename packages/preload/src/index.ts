@@ -4,4 +4,4 @@
 
 export {sha256sum} from './nodeCrypto';
 export {versions} from './versions';
-export {displayClients, createClient, searchClient, modifyClient} from './client';
+export {displayClients, createClient, searchClient, modifyClient, eraseClient} from './client';

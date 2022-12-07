@@ -35,7 +35,7 @@ const addClient = async () =>{
 
 <template>
     <div class="client-container">
-        <h1 class="titre-formulaire">Création client</h1>
+        <h1 class="titre-formulaire">Création propriétaire</h1>
         <div class="input-container">
             <label for="fistname" class="label">Prénom : </label>
             <span class="data"></span>
@@ -58,7 +58,7 @@ const addClient = async () =>{
             <label for="address" class="label">Adresse : </label>
             <textarea v-model="address" id="address"/>
         </div>
-        <div>
+        <div class="ctrlCreateClient">
             <button class="actionButton" @click="addClient()">Créer</button>
         </div>
     </div>
@@ -91,5 +91,10 @@ const addClient = async () =>{
 
 .label {
     margin-right: 10px;
+}
+
+.ctrlCreateClient {
+    display: flex;
+    justify-content: center;
 }
 </style>
