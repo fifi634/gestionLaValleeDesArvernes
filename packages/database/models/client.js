@@ -2,11 +2,11 @@ const {DataTypes} = require('sequelize');
 const sequelize = require('../dbmgr');
 
 const client = sequelize.define('client', {
-  name: {
+  firstname: {
     type: DataTypes.TEXT,
     allowNull: false,
   },
-  firstname: {
+  name: {
     type: DataTypes.TEXT,
     allowNull: false,
   },

@@ -6,13 +6,18 @@ exports.getClients = async () => {
 };
 
 exports.addClient = async newClient => {
-  client.create({
-    name: newClient.name,
-    firstname: newClient.firstname,
-    phone: newClient.phone,
-    email: newClient.email,
-    adress: newClient.adress,
-  });
+  client
+    .create({
+      name: newClient.name,
+      firstname: newClient.firstname,
+      phone: newClient.phone,
+      email: newClient.email,
+      adress: newClient.adress,
+    })
+    .then(res => {
+      return res.dataValues;
+    })
+    .catch(err => console.log(err));
 };
 
 exports.findClient = async searchId => {
@@ -25,6 +30,6 @@ exports.setClient = async data => {
     firstname: data.firstname,
     phone: data.phone,
     email: data.email,
-    adress: data.adress,
+    address: data.address,
   });
 };

@@ -8,20 +8,24 @@ const name = ref();
 const firstname = ref();
 const phone = ref();
 const email = ref();
-const adress = ref();
+const address = ref();
 
 // When you're clicking on 'Créer' button
 let newClient;
-const addClient = () =>{
+const addClient = async () =>{
     newClient = {
         name: name.value,
         firstname: firstname.value,
         phone: phone.value,
         email: email.value,
-        adress: adress.value,
+        address: address.value,
     };
     console.log('client created : ', newClient);
-    createClient(newClient);
+    
+    // const idCreated = ref(await createClient(newClient));
+    let id = ref();
+    id = createClient(newClient).then((res) => { return res }).catch((err) => console.log(err))
+    console.log('id ', id);
 };
 </script>
 
@@ -41,15 +45,15 @@ const addClient = () =>{
         </div>
         <div class="input-container">
             <label for="phone" class="label">Téléphone : </label>
-            <input type="tel" v-model="phone" id="phone" pattern="[0-9]{10}" />
+            <input type="tel" v-model="phone" id="phone" pattern="[0-9]{20}" />
         </div>
         <div class="input-container">
             <label for="email" class="label">E-mail : </label>
             <input type="email" v-model="email" id="email" />
         </div>
         <div class="input-container">
-            <label for="adress" class="label">Adresse : </label>
-            <textarea v-model="adress" id="adress"/>
+            <label for="address" class="label">Adresse : </label>
+            <textarea v-model="address" id="address"/>
         </div>
         <div>
             <button class="actionButton" @click="addClient()">Créer</button>

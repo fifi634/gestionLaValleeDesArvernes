@@ -17,7 +17,7 @@ let name = ref();
 let firstname = ref();
 let phone = ref();
 let email = ref();
-let adress = ref();
+let address = ref();
 
 
 // When you're clicking on 'Sauvegarder les modifications' button
@@ -28,7 +28,7 @@ const setClient = () =>{
         firstname: firstname.value,
         phone: phone.value,
         email: email.value,
-        adress: adress.value,
+        address: address.value,
     });
     console.log('client modified : ', editClient.value);
     modifyClient(JSON.stringify(editClient.value));
@@ -58,8 +58,8 @@ const setClient = () =>{
             <input type="email" v-model="email" id="email" :placeholder="client ? client.email : ''"/>
         </div>
         <div class="input-container">
-            <label for="adress" class="label">Adresse : </label>
-            <textarea v-model="adress" id="adress" :placeholder="client ? client.name : ''"/>
+            <label for="address" class="label">Adresse : </label>
+            <textarea v-model="address" id="address" :placeholder="client ? client.address : ''"/>
         </div>
         <div>
             <button @click="setClient" class="actionButton">Sauvegarder les modifications</button>
