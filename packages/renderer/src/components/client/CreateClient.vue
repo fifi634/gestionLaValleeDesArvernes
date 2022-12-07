@@ -25,10 +25,10 @@ const addClient = async () =>{
     console.log('client created : ', newClient);
     
     // const idCreated = ref(await createClient(newClient));
-    let id ;
-    id = createClient(newClient).then((res) => { return res.id }).catch((err) => console.log(err));
-    console.log('id ', '/client/' + id)
-    // window.location.href = '/client/' + id;
+    let id  ;
+    id = await createClient(newClient).then((res) => { return res.id }).catch((err) => console.log(err));
+    console.log('/client/' + id)
+    window.location.href = '#/client/' + id;
 };
 </script>
 

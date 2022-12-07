@@ -32,11 +32,13 @@ import Menu from '/@/components/Menu.vue';
 .container {
   background: #ECECFA;
   width: 100%;
+  padding-bottom: 10px;
 }
 
 .statusbar {
   position: fixed;
   top: 0;
+  right: 0;
 }
 
 .router {
