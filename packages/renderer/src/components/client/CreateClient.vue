@@ -1,4 +1,6 @@
+
 <script lang="ts" setup>
+
 import { ref } from 'vue';
 import { createClient } from '#preload';
 
@@ -23,9 +25,10 @@ const addClient = async () =>{
     console.log('client created : ', newClient);
     
     // const idCreated = ref(await createClient(newClient));
-    let id = ref();
-    id = createClient(newClient).then((res) => { return res }).catch((err) => console.log(err))
-    console.log('id ', id);
+    let id ;
+    id = createClient(newClient).then((res) => { return res.id }).catch((err) => console.log(err));
+    console.log('id ', '/client/' + id)
+    // window.location.href = '/client/' + id;
 };
 </script>
 

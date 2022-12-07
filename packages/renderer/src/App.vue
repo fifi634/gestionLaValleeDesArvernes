@@ -6,9 +6,10 @@ import Menu from '/@/components/Menu.vue';
 
 <template>
   <div class="container">
-    <StatusBar />
-    <Menu />
-    <router-view></router-view>
+      <StatusBar class="statusbar"/>
+      <div class="router">
+        <router-view ></router-view>
+      </div>
   </div>
 </template>
 
@@ -30,7 +31,17 @@ import Menu from '/@/components/Menu.vue';
 
 .container {
   background: #ECECFA;
-  padding-bottom: 5px;
+  width: 100%;
+}
+
+.statusbar {
+  position: fixed;
+  top: 0;
+}
+
+.router {
+  /* position: fixed; */
+  padding-top: 82px;
 }
 
 p, a, input, button, span {

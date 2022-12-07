@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import Menu from './Menu.vue';
 
 // Display component in status bar
 const currentPath = ref(window.location.hash);
@@ -11,10 +12,11 @@ window.addEventListener('hashchange', () => {
 </script>
 
 <template>
-    <div class="accueil">
-        <div>
+    <div class="menu">
+        <!-- <div>
             <p class="status">{{currentPath}}</p>
-        </div>
+        </div> -->
+        <Menu />
         <div>
             <button class="return" @click="$router.back()">Retour</button>
         </div>
@@ -22,12 +24,12 @@ window.addEventListener('hashchange', () => {
 </template>
 
 <style>
-.accueil {
+.menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    width: auto;
+    width: 100%;
     height: 82px;
 
     background: #3A4C8A;
@@ -42,7 +44,7 @@ window.addEventListener('hashchange', () => {
 }
 
 .return {
-    margin: 12px;
+    margin: 30px;
     background-color: white;
 }
 </style>

@@ -6,7 +6,7 @@ exports.getClients = async () => {
 };
 
 exports.addClient = async newClient => {
-  client
+  return client
     .create({
       name: newClient.name,
       firstname: newClient.firstname,
