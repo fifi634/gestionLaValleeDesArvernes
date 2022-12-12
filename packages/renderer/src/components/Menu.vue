@@ -6,7 +6,7 @@ import { RouterLink } from 'vue-router';
     <div class="menuContainer">
         <RouterLink to="/" class="menuButton">Accueil</RouterLink>
         <img src="../../icon/fast-forward-black.png" class="next" alt="" />
-        <RouterLink to="/client" class="menuButton">Création d'un propriétaire</RouterLink>
+        <RouterLink to="/client" class="menuButton">Création propriétaire</RouterLink>
     </div>
 </template>
 
