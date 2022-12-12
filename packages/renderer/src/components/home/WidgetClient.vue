@@ -2,7 +2,7 @@
 import {ref, onBeforeMount} from 'vue';
 import { displayClients } from '#preload';
 import { RouterLink } from 'vue-router';
-
+import { colors } from '../../config';
 
 // Get data from preload
 const clients = ref();
@@ -32,9 +32,9 @@ onBeforeMount(()=>{
     margin: 50px;
     width: 30%;
     min-width: 350px;
-    background: #FFFFFF;
+    background: v-bind('colors.secondary');
 
-    border: 1px black solid;
+    border: 1px v-bind('colors.border') solid;
     border-radius: 20px; 
 }
 
@@ -44,7 +44,7 @@ onBeforeMount(()=>{
 }
 
 .client:hover {
-    color: #3A4C8A;
+    color: v-bind('colors.primary');
     filter: inherit;
 }
 </style>

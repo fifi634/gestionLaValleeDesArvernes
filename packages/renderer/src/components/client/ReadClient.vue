@@ -2,7 +2,7 @@
 import { ref, onBeforeMount } from 'vue';
 import { searchClient } from '#preload';
 import ModifyClient from './ModifyClient.vue';
-
+import { colors } from '../../config';
 
 // Get client
 let client = ref();
@@ -73,8 +73,8 @@ const modifyClient = () => { isActive.value = !isActive.value; };
     display: flex;
     flex-direction: column;
 
-    border: black solid 1px;
-    background-color: #FFFFFF;
+    border: v-bind('colors.border') solid 1px;
+    background-color: v-bind('colors.secondary');
     border-radius: 20px;
 }
 
@@ -89,8 +89,8 @@ const modifyClient = () => { isActive.value = !isActive.value; };
 }
 
 .active {
-    background-color: #3A4C8A;
-    color: white;
+    background-color: v-bind('colors.primary');
+    color: v-bind('colors.secondary');
     filter: invert(1);
     font-weight: 400;
 }

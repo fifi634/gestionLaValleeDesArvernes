@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-// Components link
 import StatusBar from '/@/components/StatusBar.vue';
+import { colors } from './config.js';
 </script>
 
 <template>
@@ -29,7 +29,7 @@ import StatusBar from '/@/components/StatusBar.vue';
 }
 
 .container {
-  background: #ECECFA;
+  background: v-bind('colors.background');
   width: 100%;
   padding-bottom: 10px;
 }
@@ -58,42 +58,44 @@ h1, h2, h3,h4, h5, h6, label {
 button {
     font-family: inter-semiBold, sans-serif;
     font-size: 1em;
-    color: #000000;
+    color: v-bind('colors.font');
     
     padding: 7px 20px;
     margin: 10px 5px;
     max-width: 200px;
     
-    background: #efeeee;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border: 1px black solid;
+    background: v-bind('colors.backgroundButton');
+    box-shadow: 0px 4px 4px v-bind('colors.shadow');
+    border: 1px v-bind('colors.border') solid;
     border-radius: 20px;
 }
 
 button:hover {
   cursor: pointer;
   transition: 0.5s;
-  background-color: #3A4C8A;
+  background-color: v-bind('colors.primary');
   filter: invert(1);
 }
 
 button:active {
-  background-color: #3A4C8A;
-  color: white;
+  background-color: v-bind('colors.primary');
+  color: v-bind('colors.secondary');
   filter: inherit;
 }
 
+input, textarea {
+    border: 1px v-bind('colors.border') solid;
+    border-radius: 5px;
+    padding: 5px;
+}
+
 .actionButton {
-    color: white;
-    background-color: #3A4C8A;
+    color: v-bind('colors.secondary');
+    background-color: v-bind('colors.primary');
 }
 
 .actionButton:active {
-    background-color: white;
-    color: black;
-}
-
-input {
-  padding: 5px;
+    background-color: v-bind('colors.secondary');
+    color: v-bind('colors.font');
 }
 </style>

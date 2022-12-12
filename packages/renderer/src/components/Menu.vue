@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { RouterLink } from 'vue-router';
+import { colors } from '../config';
 </script>
 
 <template>
@@ -22,26 +23,26 @@ import { RouterLink } from 'vue-router';
 
     font-family: inter-semiBold, sans-serif;
     font-size: 1em;
-    color: #000000;
+    color: v-bind('colors.font');
     
     padding: 15px 40px;
     margin: 15px 30px;
     
-    background: white;
-    box-shadow: 0px 4px 4px rgba(66, 64, 64, 0.25);
-    border: 1px black solid;
+    background: v-bind('colors.secondary');
+    box-shadow: 0px 4px 4px v-bind('colors.shadow');
+    border: 1px v-bind('colors.border') solid;
     border-radius: 20px;
 }
 
 .menuButton:hover {
-    background-color: #3A4C8A;
+    background-color: v-bind('colors.primary');
     filter: invert(1);
     transition: 0.5s;
 }
 
 .menuButton:active {
-  background-color: #3A4C8A;
-  color: white;
+  background-color: v-bind('colors.primary');
+  color: v-bind('colors.secondary');
   filter: inherit;
 }
 

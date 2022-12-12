@@ -14,7 +14,10 @@
       "#preload": ["../preload/src/index"],
       "/@/*": ["./src/*"]
     },
-    "lib": ["ESNext", "dom", "dom.iterable"]
+    "lib": ["ESNext", "dom", "dom.iterable"],
+    "noImplicitAny": false,
+    "allowJs": true,
+    "outDir": "build",
   },
   "include": [
     "src/**/*.vue",
@@ -22,6 +25,6 @@
     "src/**/*.tsx",
     "types/**/*.d.ts",
     "../../types/**/*.d.ts"
-, "src/router.js"  ],
-  "exclude": ["**/*.spec.ts", "**/*.test.ts"]
+, "src/router.js", "src/config.js", "src/config.js"  ],
+  "exclude": ["**/*.spec.ts", "**/*.test.ts", "build/**/*" ]
 }

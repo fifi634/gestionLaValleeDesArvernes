@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import Menu from './Menu.vue';
+import { colors } from '../config.js';
 
 // Display component in status bar
 const currentPath = ref(window.location.hash);
@@ -32,20 +33,20 @@ window.addEventListener('hashchange', () => {
     width: 100%;
     height: auto;
 
-    background: #3A4C8A;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    background: v-bind('colors.primary');
+    filter: drop-shadow(0px 4px 4px v-bind('colors.shadow'));
 }
 
-.status {
+/* .status {
     font-family: inter-semiBold, sans-serif;
     color: #FFFFFF;
     font-size: 1.5em;
     padding: 25px 40px;
-}
+} */
 
 .return {
     margin: 30px;
-    background-color: rgb(153, 17, 17);
-    color: white;
+    background-color: v-bind('colors.dangerous');
+    color: v-bind('colors.secondary');
 }
 </style>

@@ -1,9 +1,7 @@
-
 <script lang="ts" setup>
-
 import { ref } from 'vue';
 import { createClient } from '#preload';
-
+import { colors } from '../../config';
 
 // Get form input
 const name = ref();
@@ -16,6 +14,7 @@ const city = ref();
 
 // When you're clicking on 'Créer' button
 let newClient;
+
 const addClient = async () =>{
     newClient = {
         name: name.value,
@@ -27,12 +26,14 @@ const addClient = async () =>{
         city: city.value,
     };
 
+    // Check form input
+
     let id  ;
     id = await createClient(newClient)
         .then((res) => { return res.id })
         .catch((err) => console.log(err))
     ;
-    console.log('/client/' + id)
+    console.log(id);
     window.location.href = '#/client/' + id;
 };
 </script>
@@ -42,17 +43,17 @@ const addClient = async () =>{
     <div class="createClient-container">
         <h1 class="titre-formulaire">Création propriétaire</h1>
         <div class="input-container">
-            <label for="fistname" class="label">Prénom : </label>
+            <label for="fistname">Prénom : </label>
             <span class="data"></span>
             <input v-model="firstname" id="firstname" required />
 
         </div>
         <div class="input-container">
-            <label for="name" class="label">Nom : </label>
+            <label for="name">Nom : </label>
             <input v-model="name" id="name" />
         </div>
         <div class="input-container">
-            <label for="phone" class="label">Téléphone : </label>
+            <label for="phone">Téléphone : </label>
             <input type="tel" v-model="phone" id="phone" pattern="[0-9]{20}" />
         </div>
         <div class="input-container">
@@ -60,7 +61,7 @@ const addClient = async () =>{
             <input type="email" v-model="email" id="email" />
         </div>
         <div class="input-container">
-            <label for="address" class="label">Adresse : </label>
+            <label for="address">Adresse : </label>
             <div>
                 <textarea class="address" v-model="address" name="address" placeholder="adresse" />
                 <div class="city-container">
@@ -85,8 +86,8 @@ const addClient = async () =>{
     display: flex;
     flex-direction: column;
 
-    border: black solid 1px;
-    background-color: #FFFFFF;
+    border: v-bind('colors.border') solid 1px;
+    background-color: v-bind('colors.secondary');
     border-radius: 20px;
 }
 
@@ -95,12 +96,10 @@ const addClient = async () =>{
 }
 
 .input-container {
-    margin-bottom: 10px;
-    justify-content: center;
-}
-
-.label {
-    margin-right: 10px;
+    display: flex;
+    margin: 10px 0; 
+    justify-content: space-between;   
+    align-items: center;
 }
 
 .ctrlCreateClient {

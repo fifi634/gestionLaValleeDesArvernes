@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onBeforeMount } from 'vue';
 import { searchClient, modifyClient, eraseClient } from '#preload';
+import { colors } from '../../config';
 
 // Get client
 const client = ref();
@@ -67,7 +68,7 @@ const deleteClient = () => {
             <input type="email" v-model="email" id="email" :placeholder="client ? client.email : ''" />
         </div>
         <div class="input-container">
-            <label for="address" class="label">Adresse : </label>
+            <label for="address">Adresse : </label>
             <div>
                 <textarea 
                     class="address" 
@@ -96,6 +97,8 @@ const deleteClient = () => {
 
 
 <style>
+/* lot of styles from "CreateClient.vue" */
+
 .modifyClient-container {
     display: flex;
     flex-direction: column;
@@ -103,29 +106,9 @@ const deleteClient = () => {
     padding: 20px;
     
 
-    border: black solid 1px;
-    background-color: #FFFFFF;
+    border: v-bind('colors.border') solid 1px;
+    background-color: v-bind('colors.secondary');
     border-radius: 20px;
-}
-
-.titre-formulaire {
-    font-size: 2em;
-}
-
-.input-container {
-    display: flex;
-    margin: 10px 0; 
-    justify-content: space-between;   
-    align-items: center;
-}
-
-.label {
-    margin-right: 10px;
-}
-
-input, textarea {
-    border: 1px black solid;
-    border-radius: 5px;
 }
 
 .ctrlModifyClient {
@@ -135,7 +118,7 @@ input, textarea {
 }
 
 .delete {
-    color: rgb(153, 17, 17);
+    color: v-bind('colors.dangerous');
 }
 
 .delete:hover {

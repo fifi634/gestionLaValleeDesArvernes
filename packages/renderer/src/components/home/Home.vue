@@ -7,6 +7,3 @@ import WidgetClient from './WidgetClient.vue';
         <WidgetClient />
     </div>
 </template>
-
-<style>
-</style>

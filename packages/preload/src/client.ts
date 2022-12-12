@@ -5,13 +5,13 @@ const { getClients, addClient, findClient, setClient, deleteClient } = require('
 export const displayClients = async() => { return await getClients(); };
 
 // Get client object from renderer
-export const createClient = async(data) => { return await addClient(data); };
+export const createClient = async(data: any) => { return await addClient(data); };
 
 // Get client from database
-export const searchClient = async(data) => { return await findClient(data); };
+export const searchClient = async(data: any) => { return await findClient(data); };
 
 // Modify client
-export const modifyClient = async(data: string, id: number) => { return await setClient(data, id); };
+export const modifyClient = async(data: string, id: any) => { return await setClient(data, id); };
 
 // Delete client
-export const eraseClient = async (id: number) => { return await deleteClient(id) };
+export const eraseClient = async (id: any) => { return await deleteClient(id) };
