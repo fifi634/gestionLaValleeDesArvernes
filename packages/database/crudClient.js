@@ -46,6 +46,5 @@ exports.setClient = async (data2, id) => {
 };
 
 exports.deleteClient = async id => {
-  const delClient = findClient(id);
-  return client.destroy(delClient);
+  return client.destroy({where: {id: id}});
 };

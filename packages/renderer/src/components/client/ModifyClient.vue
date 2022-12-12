@@ -36,7 +36,7 @@ const setClient = async () =>{
 
 // When you're clicking on link "Supprimer un propriétaire"
 const deleteClient = () => {
-    eraseClient(clientId);
+    eraseClient(clientId.value);
     window.location.href = '#/';
 }
 </script>
