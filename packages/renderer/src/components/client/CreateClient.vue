@@ -11,6 +11,8 @@ const firstname = ref();
 const phone = ref();
 const email = ref();
 const address = ref();
+const postalCode = ref();
+const city = ref();
 
 // When you're clicking on 'Créer' button
 let newClient;
@@ -21,12 +23,15 @@ const addClient = async () =>{
         phone: phone.value,
         email: email.value,
         address: address.value,
+        postalCode: postalCode.value,
+        city: city.value,
     };
-    console.log('client created : ', newClient);
-    
-    // const idCreated = ref(await createClient(newClient));
+
     let id  ;
-    id = await createClient(newClient).then((res) => { return res.id }).catch((err) => console.log(err));
+    id = await createClient(newClient)
+        .then((res) => { return res.id })
+        .catch((err) => console.log(err))
+    ;
     console.log('/client/' + id)
     window.location.href = '#/client/' + id;
 };
@@ -56,7 +61,13 @@ const addClient = async () =>{
         </div>
         <div class="input-container">
             <label for="address" class="label">Adresse : </label>
-            <textarea v-model="address" id="address"/>
+            <div>
+                <textarea class="address" v-model="address" name="address" placeholder="adresse" />
+                <div class="city-container">
+                    <input type="text" class="postalCode" v-model="postalCode" name="address" placeholder="code" />
+                    <input type="text" v-model="city" name="address" placeholder="ville" />
+                </div>
+            </div>
         </div>
         <div class="ctrlCreateClient">
             <button class="actionButton" @click="addClient()">Créer</button>
@@ -95,5 +106,19 @@ const addClient = async () =>{
 .ctrlCreateClient {
     display: flex;
     justify-content: center;
+}
+
+.city-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.address {
+    width: 255px;
+}
+
+.postalCode {
+    width: 50px;
+    margin-right: 5px;
 }
 </style>

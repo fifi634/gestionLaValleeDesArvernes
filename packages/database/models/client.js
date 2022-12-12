@@ -11,12 +11,18 @@ const client = sequelize.define('client', {
     allowNull: false,
   },
   phone: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.TEXT,
   },
   email: {
     type: DataTypes.TEXT,
   },
   address: {
+    type: DataTypes.TEXT,
+  },
+  postalCode: {
+    type: DataTypes.TEXT,
+  },
+  city: {
     type: DataTypes.TEXT,
   },
   payStatut: {

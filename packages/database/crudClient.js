@@ -12,7 +12,9 @@ exports.addClient = async newClient => {
       firstname: newClient.firstname,
       phone: newClient.phone,
       email: newClient.email,
-      adress: newClient.adress,
+      address: newClient.address,
+      postalCode: newClient.postalCode,
+      city: newClient.city,
     })
     .then(res => {
       return res.dataValues;
@@ -34,6 +36,8 @@ exports.setClient = async (data2, id) => {
         phone: data._value.phone,
         email: data._value.email,
         address: data._value.address,
+        postalCode: data._value.postalCode,
+        city: data._value.city,
       },
       {
         where: {id: id},

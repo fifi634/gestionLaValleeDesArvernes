@@ -39,7 +39,12 @@ const modifyClient = () => { isActive.value = !isActive.value; };
             </div>
             <div class="input-container">
                 <label for="address" class="label">Adresse : </label>
-                <span id="address">{{client.dataValues.address}}</span>
+                <div>
+                <span class="address" name="address">
+                    {{client.dataValues.address}}<br />
+                    {{client.dataValues.postalCode}} {{client.dataValues.city}}
+                </span>
+            </div>
             </div>
             <div class="ctrlReadClient">
                 <button class="button" :class="{active:isActive}" @click="modifyClient()">

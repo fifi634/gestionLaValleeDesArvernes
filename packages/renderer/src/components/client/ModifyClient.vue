@@ -18,6 +18,8 @@ let firstname = ref();
 let phone = ref();
 let email = ref();
 let address = ref();
+let postalCode = ref();
+let city= ref();
 
 
 // When you're clicking on 'Sauvegarder les modifications' button
@@ -29,6 +31,8 @@ const setClient = async () =>{
         phone: phone.value,
         email: email.value,
         address: address.value,
+        postalCode: postalCode.value,
+        city: city.value,
     });
     await modifyClient(JSON.stringify(editClient), clientId.value);
     window.location.reload()
@@ -64,7 +68,24 @@ const deleteClient = () => {
         </div>
         <div class="input-container">
             <label for="address" class="label">Adresse : </label>
-            <textarea v-model="address" id="address" :placeholder="client ? client.address : ''" />
+            <div>
+                <textarea 
+                    class="address" 
+                    v-model="address" 
+                    name="address" 
+                    :placeholder="client ? client.address : 'adresse'" 
+                />
+                <div class="city-container">
+                    <input 
+                        type="text" 
+                        class="postalCode" 
+                        v-model="postalCode" 
+                        name="address" 
+                        :placeholder="client ? client.postalCode : 'code'" 
+                    />
+                    <input type="text" v-model="city" name="address" :placeholder="client ? client.city : 'ville'" />
+                </div>
+            </div>
         </div>
         <div class="ctrlModifyClient">
             <button @click="setClient" class="actionButton">Sauvegarder les modifications</button>

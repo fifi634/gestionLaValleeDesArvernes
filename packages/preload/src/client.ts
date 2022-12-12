@@ -11,7 +11,7 @@ export const createClient = async(data) => { return await addClient(data); };
 export const searchClient = async(data) => { return await findClient(data); };
 
 // Modify client
-export const modifyClient = async(data, id) => { return await setClient(data, id); };
+export const modifyClient = async(data: string, id: number) => { return await setClient(data, id); };
 
 // Delete client
-export const eraseClient = async (id) => { return await deleteClient(id) };
+export const eraseClient = async (id: number) => { return await deleteClient(id) };
