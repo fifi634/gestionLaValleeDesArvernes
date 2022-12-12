@@ -29,8 +29,9 @@ onBeforeMount(()=>{
 <style>
 .widgetContainer {
     padding: 10px;
-    margin: 10px;
+    margin: 50px;
     width: 30%;
+    min-width: 350px;
     background: #FFFFFF;
 
     border: 1px black solid;

@@ -63,7 +63,7 @@ const modifyClient = () => { isActive.value = !isActive.value; };
 .readClient-container {
     margin: 50px;
     padding: 20px;
-    max-width: 300px;
+    width: 400px;
 
     display: flex;
     flex-direction: column;
@@ -93,5 +93,11 @@ const modifyClient = () => { isActive.value = !isActive.value; };
 .active:hover {
     font-weight: 600;
     transition: 0s;
+}
+
+@media screen and (max-width: 1000px) {
+    .allReadClient-container {
+        flex-direction: column-reverse;
+    }
 }
 </style>

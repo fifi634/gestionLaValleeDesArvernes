@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 // Components link
 import StatusBar from '/@/components/StatusBar.vue';
-import Menu from '/@/components/Menu.vue';
 </script>
 
 <template>
@@ -42,8 +41,9 @@ import Menu from '/@/components/Menu.vue';
 }
 
 .router {
-  /* position: fixed; */
   padding-top: 82px;
+  display: flex;
+  justify-content: center;
 }
 
 p, a, input, button, span {

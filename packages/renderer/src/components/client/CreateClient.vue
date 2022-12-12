@@ -34,7 +34,7 @@ const addClient = async () =>{
 
 
 <template>
-    <div class="client-container">
+    <div class="createClient-container">
         <h1 class="titre-formulaire">Création propriétaire</h1>
         <div class="input-container">
             <label for="fistname" class="label">Prénom : </label>
@@ -66,11 +66,10 @@ const addClient = async () =>{
 
 
 <style>
-.client-container {
+.createClient-container {
     margin: 50px;
     padding: 20px;
-    min-width: 200px;
-    width: 30%;
+    width: 350px;
 
     display: flex;
     flex-direction: column;
