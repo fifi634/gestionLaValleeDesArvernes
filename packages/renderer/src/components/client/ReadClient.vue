@@ -13,7 +13,7 @@ onBeforeMount(()=>{
 
 // When you're clicking on 'Modifier' button
 let isActive = ref(false);
-const modifyClient = () => { isActive.value = !isActive.value; };
+const modifyClient = () => { isActive.value = !isActive.value };
 </script>
 
 

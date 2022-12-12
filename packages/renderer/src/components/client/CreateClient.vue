@@ -25,16 +25,17 @@ const addClient = async () =>{
         postalCode: postalCode.value,
         city: city.value,
     };
-
-    // Check form input
-
-    let id  ;
-    id = await createClient(newClient)
-        .then((res) => { return res.id })
-        .catch((err) => console.log(err))
-    ;
-    console.log(id);
-    window.location.href = '#/client/' + id;
+    
+    // Check minimum input
+    if(newClient.name || newClient.firstname) {
+        let id = await createClient(newClient)
+            .then((res) => { return res.id })
+            .catch((err) => console.log(err))
+        ;
+        window.location.href = '#/client/' + id;
+    } else {
+        alert("J'ai besoin d'un nom et d'un prénom au minimum.")
+    };
 };
 </script>
 
@@ -45,7 +46,7 @@ const addClient = async () =>{
         <div class="input-container">
             <label for="fistname">Prénom : </label>
             <span class="data"></span>
-            <input v-model="firstname" id="firstname" required />
+            <input v-model="firstname" id="firstname" pattern="([A-Z])\w+" required />
 
         </div>
         <div class="input-container">
