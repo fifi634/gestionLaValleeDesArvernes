@@ -2,6 +2,15 @@
 import { ref } from 'vue';
 import { createClient } from '#preload';
 import { colors } from '../../config';
+import { useWhereIAm } from '../../store';
+
+// Add active class on menu button for watch rooting 
+const store = useWhereIAm()
+if(window.location.hash == '#/client') { 
+    store.clientActived = true;
+    store.homeActived = false;
+    store.dogActived = false;
+};
 
 // Get form input
 const name = ref();

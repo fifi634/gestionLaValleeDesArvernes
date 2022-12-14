@@ -1,26 +1,26 @@
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
 import { RouterLink } from 'vue-router';
 import { colors } from '../config';
+import { useWhereIAm } from '../store';
 
-//Change button color if we are on the page
-let clientActived = ref(false);
-
-watch( clientActived, () => {
-    if(window.location.hash == '#/client') { clientActived.value = true } else { clientActived.value = false };
-})
+// Get boolean from pinia store to add active class for watch rooting 
+const store = useWhereIAm()
 </script>
 
 
 <template>
     <div class="menuContainer">
-        <RouterLink to="/" class="menuButton">Accueil</RouterLink>
+        <RouterLink to="/" class="menuButton" :class="{active:store.homeActived}" alt="Retour à l'accueil">
+            Accueil
+        </RouterLink>
         <img src="../../icon/fast-forward-black.png" class="next" />
-        <RouterLink to="/client" class="menuButton" :class="{active:clientActived}" v-bind="clientActived" alt="Créer un propriétaire">
+        <RouterLink to="/client" class="menuButton" :class="{active:store.clientActived}" alt="Créer un propriétaire">
             Création propriétaire
         </RouterLink>
         <img src="../../icon/fast-forward-black.png" class="next" />
-        <RouterLink to="/dog" class="menuButton" alt="Créer un chien">Création chien</RouterLink>
+        <RouterLink to="/dog" class="menuButton" :class="{active:store.dogActived}" alt="Créer un chien">
+            Création chien
+        </RouterLink>
     </div>
 </template>
 
