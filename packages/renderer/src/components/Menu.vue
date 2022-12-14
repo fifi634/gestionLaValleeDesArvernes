@@ -8,6 +8,8 @@ import { colors } from '../config';
         <RouterLink to="/" class="menuButton">Accueil</RouterLink>
         <img src="../../icon/fast-forward-black.png" class="next" alt="" />
         <RouterLink to="/client" class="menuButton">Création propriétaire</RouterLink>
+        <img src="../../icon/fast-forward-black.png" class="next" alt="" />
+        <RouterLink to="/dog" class="menuButton">Création chien</RouterLink>
     </div>
 </template>
 

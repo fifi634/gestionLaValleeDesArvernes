@@ -98,4 +98,10 @@ input, textarea {
     background-color: v-bind('colors.secondary');
     color: v-bind('colors.font');
 }
+
+.errMessage {
+  font-family: inter-semiBold, sans-serif;
+  color: v-bind('colors.dangerous');
+  text-align: center;
+}
 </style>

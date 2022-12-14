@@ -14,6 +14,8 @@ const city = ref();
 
 // When you're clicking on 'Créer' button
 let newClient;
+let goDog = ref(false);
+let errInput = ref(false);
 
 const addClient = async () =>{
     newClient = {
@@ -26,15 +28,16 @@ const addClient = async () =>{
         city: city.value,
     };
     
-    // Check minimum input
+    // Check if has a minimum input required
     if(newClient.name || newClient.firstname) {
         let id = await createClient(newClient)
             .then((res) => { return res.id })
             .catch((err) => console.log(err))
         ;
-        window.location.href = '#/client/' + id;
+        if(goDog.value == false) window.location.href = '#/client/' + id;
+        else window.location.href = '#/dog/';
     } else {
-        alert("J'ai besoin d'un nom et d'un prénom au minimum.")
+        errInput.value = true;
     };
 };
 </script>
@@ -72,7 +75,11 @@ const addClient = async () =>{
             </div>
         </div>
         <div class="ctrlCreateClient">
-            <button class="actionButton" @click="addClient()">Créer</button>
+            <button @click="addClient(); goDog=false">Créer sans ajout de chien</button>
+            <button class="actionButton" @click="addClient(); goDog=true">Créer et ajouter un chien</button>
+        </div>
+        <div v-if="errInput">
+            <p class="errMessage">J'ai besoin d'un prénom et d'un nom <br /> pour créer le client.</p>
         </div>
     </div>
 </template>
@@ -82,7 +89,7 @@ const addClient = async () =>{
 .createClient-container {
     margin: 50px;
     padding: 20px;
-    width: 350px;
+    width: 400px;
 
     display: flex;
     flex-direction: column;
