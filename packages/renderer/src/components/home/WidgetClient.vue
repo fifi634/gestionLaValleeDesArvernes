@@ -26,7 +26,7 @@ onBeforeMount(()=>{
 </template>
 
 
-<style>
+<style lang="scss">
 .widgetContainer {
     padding: 10px;
     margin: 50px;
@@ -41,10 +41,10 @@ onBeforeMount(()=>{
 .client {
     text-decoration : none;
     line-height: 25px;
-}
 
-.client:hover {
-    color: v-bind('colors.primary');
-    filter: inherit;
+    &:hover {
+        color: v-bind('colors.primary');
+        filter: inherit;
+    }
 }
 </style>

@@ -96,7 +96,7 @@ const deleteClient = () => {
 </template>
 
 
-<style>
+<style lang="scss">
 /* lot of styles from "CreateClient.vue" */
 
 .modifyClient-container {
@@ -119,9 +119,9 @@ const deleteClient = () => {
 
 .delete {
     color: v-bind('colors.dangerous');
-}
 
-.delete:hover {
-    font-weight: 700;
+    &:hover {
+        font-weight: 700;
+    }
 }
 </style>

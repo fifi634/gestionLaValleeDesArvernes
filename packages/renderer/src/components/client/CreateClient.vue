@@ -79,13 +79,13 @@ const addClient = async () =>{
             <button class="actionButton" @click="addClient(); goDog=true">Créer et ajouter un chien</button>
         </div>
         <div v-if="errInput">
-            <p class="errMessage">J'ai besoin d'un prénom et d'un nom <br /> pour créer le client.</p>
+            <p class="errMessage">J'ai besoin d'un prénom et d'un nom <br /> pour créer un propriétaire.</p>
         </div>
     </div>
 </template>
 
 
-<style>
+<style land="scss">
 .createClient-container {
     margin: 50px;
     padding: 20px;

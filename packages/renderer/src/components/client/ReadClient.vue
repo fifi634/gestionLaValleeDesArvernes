@@ -88,18 +88,6 @@ const modifyClient = () => { isActive.value = !isActive.value };
     justify-content: center;
 }
 
-.active {
-    background-color: v-bind('colors.primary');
-    color: v-bind('colors.secondary');
-    filter: invert(1);
-    font-weight: 400;
-}
-
-.active:hover {
-    font-weight: 600;
-    transition: 0s;
-}
-
 @media screen and (max-width: 1000px) {
     .allReadClient-container {
         flex-direction: column-reverse;

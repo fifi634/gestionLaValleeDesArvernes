@@ -24,7 +24,7 @@ window.addEventListener('hashchange', () => {
     </div>
 </template>
 
-<style>
+<style lang="scss">
 .menu {
     display: flex;
     justify-content: space-between;
