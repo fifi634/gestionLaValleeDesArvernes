@@ -58,7 +58,7 @@ const addClient = async () =>{
         <div class="input-container">
             <label for="fistname">Prénom : </label>
             <span class="data"></span>
-            <input v-model="firstname" id="firstname" pattern="([A-Z])\w+" required />
+            <input v-model="firstname" id="firstname" required />
 
         </div>
         <div class="input-container">
@@ -67,7 +67,7 @@ const addClient = async () =>{
         </div>
         <div class="input-container">
             <label for="phone">Téléphone : </label>
-            <input type="tel" v-model="phone" id="phone" pattern="[0-9]{20}" />
+            <input type="tel" v-model="phone" id="phone" />
         </div>
         <div class="input-container">
             <label for="email" class="label">E-mail : </label>
@@ -94,18 +94,20 @@ const addClient = async () =>{
 </template>
 
 
-<style land="scss">
+<style lang="scss">
 .createClient-container {
-    margin: 50px;
-    padding: 20px;
-    width: 400px;
-
     display: flex;
     flex-direction: column;
-
+    margin: 120px 50px 50px 50px;
+    padding: 20px;
+    width: 400px;  
     border: v-bind('colors.border') solid 1px;
     background-color: v-bind('colors.secondary');
     border-radius: 20px;
+
+    @media screen and (max-width: 970px) {
+        margin: 50px 50px 50px 250px;
+    }
 }
 
 .titre-formulaire {

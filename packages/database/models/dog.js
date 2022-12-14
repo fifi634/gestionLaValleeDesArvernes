@@ -17,7 +17,7 @@ const dog = sequelize.define('dog', {
     type: DataTypes.TEXT,
   },
   ordinance: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.TEXT,
   },
 });
 

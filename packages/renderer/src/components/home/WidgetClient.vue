@@ -33,7 +33,6 @@ onBeforeMount(()=>{
     width: 30%;
     min-width: 350px;
     background: v-bind('colors.secondary');
-
     border: 1px v-bind('colors.border') solid;
     border-radius: 20px; 
 }

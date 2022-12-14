@@ -14,13 +14,8 @@ window.addEventListener('hashchange', () => {
 
 <template>
     <div class="menu">
-        <!-- <div>
-            <p class="status">{{currentPath}}</p>
-        </div> -->
         <Menu />
-        <div>
-            <button class="return" @click="$router.back()">Retour</button>
-        </div>
+        <button class="return" @click="$router.back()">Retour</button>
     </div>
 </template>
 
@@ -29,20 +24,16 @@ window.addEventListener('hashchange', () => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     width: 100%;
-    height: auto;
-
+    height: 100%;
     background: v-bind('colors.primary');
     filter: drop-shadow(0px 4px 4px v-bind('colors.shadow'));
-}
 
-/* .status {
-    font-family: inter-semiBold, sans-serif;
-    color: #FFFFFF;
-    font-size: 1.5em;
-    padding: 25px 40px;
-} */
+    @media screen and (max-width: 970px) {
+        flex-direction: column;
+        width: 200px;
+    }
+}
 
 .return {
     margin: 30px;

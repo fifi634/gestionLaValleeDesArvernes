@@ -98,14 +98,11 @@ const deleteClient = () => {
 
 <style lang="scss">
 /* lot of styles from "CreateClient.vue" */
-
 .modifyClient-container {
     display: flex;
     flex-direction: column;
     margin: 50px;
-    padding: 20px;
-    
-
+    padding: 20px;    
     border: v-bind('colors.border') solid 1px;
     background-color: v-bind('colors.secondary');
     border-radius: 20px;

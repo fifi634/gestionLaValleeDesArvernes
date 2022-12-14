@@ -47,7 +47,7 @@ const modifyClient = () => { isActive.value = !isActive.value };
             </div>
             </div>
             <div class="ctrlReadClient">
-                <button class="button" :class="{active:isActive}" @click="modifyClient()">
+                <button class="button" @click="modifyClient()">
                     <span v-if="isActive">Fermer le panneau de modification</span>
                     <span v-else>Ouvrir le panneau de modification</span>
                 </button>
@@ -60,19 +60,21 @@ const modifyClient = () => { isActive.value = !isActive.value };
 </template>
 
 
-<style>
+<style lang="scss">
 .allReadClient-container {
     display: flex;
+
+    @media screen and (max-width: 970px) {
+        flex-direction: column-reverse;
+    }
 }
 
 .readClient-container {
     margin: 50px;
     padding: 20px;
     width: 400px;
-
     display: flex;
     flex-direction: column;
-
     border: v-bind('colors.border') solid 1px;
     background-color: v-bind('colors.secondary');
     border-radius: 20px;
@@ -86,11 +88,5 @@ const modifyClient = () => { isActive.value = !isActive.value };
     display: flex;
     font-weight: 700;
     justify-content: center;
-}
-
-@media screen and (max-width: 1000px) {
-    .allReadClient-container {
-        flex-direction: column-reverse;
-    }
 }
 </style>

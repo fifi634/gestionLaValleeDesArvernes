@@ -1,15 +1,13 @@
 <script lang="ts" setup>
-import StatusBar from '/@/components/StatusBar.vue';
+import Header from './components/Header.vue';
 import { colors } from './config.js';
 </script>
 
 
 <template>
   <div class="container">
-      <StatusBar class="statusbar"/>
-      <div class="router">
-        <router-view ></router-view>
-      </div>
+    <Header class="header"/>
+    <router-view class="router"></router-view>
   </div>
 </template>
 
@@ -31,21 +29,46 @@ import { colors } from './config.js';
 }
 
 .container {
+  position: absolute;
   background: v-bind('colors.background');
-  width: 100%;
-  padding-bottom: 10px;
+  min-height: 97%;
+  min-width: 98%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+
+  @media screen and (max-width: 970px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    min-height: 96.4%;
+    min-width: 97.4%;
+    transition: 0.3s;
+  }
 }
 
-.statusbar {
+.header {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
+  transition: 0.5s;
+  height: 100px;
+  @media screen and (max-width: 970px) {
+    position: inherit;
+    height: 100%;
+  }
 }
 
 .router {
-  padding-top: 82px;
   display: flex;
-  justify-content: center;
+  padding-top: 82px;
+  height: 100%;
+  transition: 0.5s;
+
+  @media screen and (max-width: 970px) {
+    padding-top: inherit;
+    margin-left: 200px;
+  }
 }
 
 p, a, input, button, span {
@@ -60,20 +83,18 @@ h1, h2, h3,h4, h5, h6, label {
 button {
   font-family: inter-semiBold, sans-serif;
   font-size: 1em;
-  color: v-bind('colors.font');
-  
+  color: v-bind('colors.font');  
   padding: 7px 20px;
   margin: 10px 5px;
-  max-width: 200px;
-  
+  max-width: 200px;  
   background: v-bind('colors.backgroundButton');
   box-shadow: 0px 4px 4px v-bind('colors.shadow');
   border: 1px v-bind('colors.border') solid;
   border-radius: 20px;
+  transition: 0.5s;
   
   &:hover {
     cursor: pointer;
-    transition: 0.5s;
     background-color: v-bind('colors.primary');
     filter: invert(1);
   }
