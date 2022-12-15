@@ -41,7 +41,6 @@ import { colors } from './config.js';
   @media screen and (max-width: 970px) {
     display: flex;
     flex-direction: row;
-    justify-content: start;
     min-height: 96.4%;
     min-width: 97.4%;
     transition: 0.3s;

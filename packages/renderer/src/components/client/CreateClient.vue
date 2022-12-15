@@ -110,6 +110,7 @@ const addClient = async () =>{
 
 .titre-formulaire {
     font-size: 2em;
+    text-align: center;
 }
 
 .input-container {

@@ -20,7 +20,7 @@ const modifyClient = () => { isActive.value = !isActive.value };
 <template>
     <div class="allRead-container">
         <div class="readClient-container" v-if="client">
-            <h1 class="titre">Fiche propriétaire</h1>
+            <h1 class="titre-formulaire">Fiche propriétaire</h1>
             <div class="input-container">
                 <label for="fistname" class="label">Prénom : </label>
                 <span class="data" name="firstname">{{client.dataValues.firstname}}</span>
@@ -78,10 +78,6 @@ const modifyClient = () => { isActive.value = !isActive.value };
     border: v-bind('colors.border') solid 1px;
     background-color: v-bind('colors.secondary');
     border-radius: 20px;
-}
-
-.titre-formulaire {
-    font-size: 2em;
 }
 
 .ctrlRead {

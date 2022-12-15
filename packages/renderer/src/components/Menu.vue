@@ -59,6 +59,11 @@ const store = useWhereIAm()
         color: v-bind('colors.secondary');
         filter: inherit;
     }
+
+    @media screen and (max-width: 970px) {
+        width: 80px;
+        text-align: center;
+    }
 }
 
 .next {
