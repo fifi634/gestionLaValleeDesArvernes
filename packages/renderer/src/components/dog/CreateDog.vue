@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useWhereIAm } from '../../store';
 import { ref } from 'vue';
-import { colors } from '../../config'
+import { colors } from '../../config';
+import { createDog } from '#preload';
 
 // Add active class on menu button for watch rooting 
 const store = useWhereIAm()
@@ -31,17 +32,22 @@ let goBox = ref(false);
 let goDog = ref(false);
 let errInput = ref(false);
 
-const addDog = () => {
+const addDog = async() => {
     newDog = {
         name: name.value,
         description: description.value,
         vaccination: vaccination.value,
     };
 
+    // Check if it has a minimum input required
     if(newDog.name) {
-        console.log(newDog.name)
-        console.log(newDog.description)
-        console.log(newDog.vaccination);
+        let id = await createDog(newDog)
+            .then((res) => { return res.id })
+            .catch((err) => console.log(err))
+        ;
+        if(goDog.value == true) window.location.href = '#/dog/';
+        if(goBox.value == true) window.location.href = '#/box/';
+        if(!goDog.value && !goBox.value) window.location.href = '#/dog/' + id;
     } else {
         errInput.value = true;
     }

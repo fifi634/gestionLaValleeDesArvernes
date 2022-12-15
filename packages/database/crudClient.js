@@ -26,18 +26,18 @@ exports.findClient = async searchId => {
   return await client.findOne({where: {id: searchId}});
 };
 
-exports.setClient = async (data2, id) => {
-  let data = JSON.parse(data2);
+exports.setClient = async (data, id) => {
+  let dataParsed = JSON.parse(data);
   return client
     .update(
       {
-        name: data._value.name,
-        firstname: data._value.firstname,
-        phone: data._value.phone,
-        email: data._value.email,
-        address: data._value.address,
-        postalCode: data._value.postalCode,
-        city: data._value.city,
+        name: dataParsed._value.name,
+        firstname: dataParsed._value.firstname,
+        phone: dataParsed._value.phone,
+        email: dataParsed._value.email,
+        address: dataParsed._value.address,
+        postalCode: dataParsed._value.postalCode,
+        city: dataParsed._value.city,
       },
       {
         where: {id: id},

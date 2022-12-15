@@ -37,7 +37,7 @@ const addClient = async () =>{
         city: city.value,
     };
     
-    // Check if has a minimum input required
+    // Check if it has a minimum input required
     if(newClient.name || newClient.firstname) {
         let id = await createClient(newClient)
             .then((res) => { return res.id })

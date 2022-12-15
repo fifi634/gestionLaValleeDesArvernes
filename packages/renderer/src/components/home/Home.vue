@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import WidgetClient from './WidgetClient.vue';
+import WidgetDog from './WidgetDog.vue';
 import { useWhereIAm } from '../../store';
 
 // Add active class on menu button for watch rooting 
@@ -12,7 +13,17 @@ if(window.location.hash == '#/') {
 </script>
 
 <template>
-    <div>
+    <div class="widget-container">
         <WidgetClient />
+        <WidgetDog />
     </div>
 </template>
+
+<style lang="scss">
+.widget-container {
+    @media screen and (max-width: 970px) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+</style>
