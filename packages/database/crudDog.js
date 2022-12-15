@@ -26,13 +26,14 @@ exports.findDog = async searchId => {
 
 exports.setDog = async (data, id) => {
   let dataParsed = JSON.parse(data);
+  console.log(dataParsed._value);
   return dog
     .update(
       {
-        name: newDog.name,
+        name: dataParsed._value.name,
         photo: '',
-        description: newDog.description,
-        vaccination: newDog.vaccination,
+        description: dataParsed._value.description,
+        vaccination: dataParsed._value.vaccination,
         ordinance: '',
       },
       {

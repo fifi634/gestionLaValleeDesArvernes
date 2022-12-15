@@ -90,7 +90,7 @@ const addDog = async() => {
 </template>
 
 <style lang="scss">
-/* Few styles from CreateClient */
+/* Some styles come from CreateClient */
 .createDog-container {
     margin: 120px 50px 50px 50px;
     padding: 20px;

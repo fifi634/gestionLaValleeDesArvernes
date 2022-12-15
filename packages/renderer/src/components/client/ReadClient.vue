@@ -18,24 +18,24 @@ const modifyClient = () => { isActive.value = !isActive.value };
 
 
 <template>
-    <div class="allReadClient-container">
+    <div class="allRead-container">
         <div class="readClient-container" v-if="client">
             <h1 class="titre">Fiche propriétaire</h1>
             <div class="input-container">
                 <label for="fistname" class="label">Prénom : </label>
-                <span class="data" id="firstname">{{client.dataValues.firstname}}</span>
+                <span class="data" name="firstname">{{client.dataValues.firstname}}</span>
             </div>
             <div class="input-container">
                 <label for="name" class="label">Nom : </label>
-                <span class="data" id="name">{{client.dataValues.name}}</span>
+                <span class="data" name="name">{{client.dataValues.name}}</span>
             </div>
             <div class="input-container">
                 <label for="phone" class="label">Téléphone : </label>
-                <span class="data" id="phone">{{client.dataValues.phone}}</span>
+                <span class="data" name="phone">{{client.dataValues.phone}}</span>
             </div>
             <div class="input-container">
                 <label for="email" class="label">E-mail : </label>
-                <span class="data" id="email">{{client.dataValues.email}}</span>
+                <span class="data" name="email">{{client.dataValues.email}}</span>
             </div>
             <div class="input-container">
                 <label for="address" class="label">Adresse : </label>
@@ -46,7 +46,7 @@ const modifyClient = () => { isActive.value = !isActive.value };
                 </span>
             </div>
             </div>
-            <div class="ctrlReadClient">
+            <div class="ctrlRead">
                 <button class="button" @click="modifyClient()">
                     <span v-if="isActive">Fermer le panneau de modification</span>
                     <span v-else>Ouvrir le panneau de modification</span>
@@ -61,7 +61,7 @@ const modifyClient = () => { isActive.value = !isActive.value };
 
 
 <style lang="scss">
-.allReadClient-container {
+.allRead-container {
     display: flex;
 
     @media screen and (max-width: 970px) {
@@ -84,7 +84,7 @@ const modifyClient = () => { isActive.value = !isActive.value };
     font-size: 2em;
 }
 
-.ctrlReadClient {
+.ctrlRead {
     display: flex;
     font-weight: 700;
     justify-content: center;

@@ -13,6 +13,7 @@ import { colors } from './config.js';
 
 
 <style lang="scss">
+/* General styles for all software */
 @font-face {
   font-family: inter-light;
   src: url('../font/inter/static/inter-Light.ttf');

@@ -57,21 +57,19 @@ const addClient = async () =>{
         <h1 class="titre-formulaire">Création propriétaire</h1>
         <div class="input-container">
             <label for="fistname">Prénom : </label>
-            <span class="data"></span>
-            <input v-model="firstname" id="firstname" required />
-
+            <input v-model="firstname" name="firstname" required />
         </div>
         <div class="input-container">
             <label for="name">Nom : </label>
-            <input v-model="name" id="name" />
+            <input v-model="name" name="name" />
         </div>
         <div class="input-container">
             <label for="phone">Téléphone : </label>
-            <input type="tel" v-model="phone" id="phone" />
+            <input type="tel" v-model="phone" name="phone" />
         </div>
         <div class="input-container">
             <label for="email" class="label">E-mail : </label>
-            <input type="email" v-model="email" id="email" />
+            <input type="email" v-model="email" name="email" />
         </div>
         <div class="input-container">
             <label for="address">Adresse : </label>

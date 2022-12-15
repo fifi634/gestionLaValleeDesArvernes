@@ -21,6 +21,7 @@ if(window.location.hash == '#/') {
 
 <style lang="scss">
 .widget-container {
+    transition: 0.5s;
     @media screen and (max-width: 970px) {
         display: flex;
         flex-direction: column;

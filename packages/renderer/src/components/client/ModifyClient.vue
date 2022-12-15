@@ -52,20 +52,19 @@ const deleteClient = () => {
         <h1 class="titre-formulaire">Modification propriétaire</h1>
         <div class="input-container">
             <label for="fistname" class="label">Prénom : </label>
-            <span class="data"></span>
-            <input v-model="firstname" id="firstname" :placeholder="client ? client.firstname : ''" required />
+            <input v-model="firstname" name="firstname" :placeholder="client ? client.firstname : ''" required />
         </div>
         <div class="input-container">
             <label for="name" class="label">Nom : </label>
-            <input v-model="name" id="name" :placeholder="client ? client.name : ''"/>
+            <input v-model="name" name="name" :placeholder="client ? client.name : ''"/>
         </div>
         <div class="input-container">
             <label for="phone" class="label">Téléphone : </label>
-            <input type="tel" v-model="phone" id="phone" pattern="[0-9]{10}" :placeholder="client ? client.phone : ''" />
+            <input type="tel" v-model="phone" name="phone" pattern="[0-9]{10}" :placeholder="client ? client.phone : ''" />
         </div>
         <div class="input-container">
             <label for="email" class="label">E-mail : </label>
-            <input type="email" v-model="email" id="email" :placeholder="client ? client.email : ''" />
+            <input type="email" v-model="email" name="email" :placeholder="client ? client.email : ''" />
         </div>
         <div class="input-container">
             <label for="address">Adresse : </label>
@@ -97,7 +96,7 @@ const deleteClient = () => {
 
 
 <style lang="scss">
-/* lot of styles from "CreateClient.vue" */
+/* Lot of styles come from "CreateClient.vue" */
 .modifyClient-container {
     display: flex;
     flex-direction: column;

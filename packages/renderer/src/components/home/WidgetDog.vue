@@ -27,6 +27,7 @@ onBeforeMount(()=>{
 
 
 <style lang="scss">
+/* Some styles come from WidgetClient.vue */
 .widgetDogContainer {
     padding: 10px;
     margin: 50px;
