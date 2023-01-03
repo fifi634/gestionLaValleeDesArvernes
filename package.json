@@ -50,7 +50,10 @@
     "vue-tsc": "1.0.13"
   },
   "dependencies": {
+    "chokidar": "^3.5.3",
     "electron-updater": "5.3.0",
+    "fs-extra": "^11.1.0",
+    "open": "^8.4.0",
     "pinia": "^2.0.28",
     "sequelize": "^6.25.8",
     "sqlite3": "^5.1.2",
