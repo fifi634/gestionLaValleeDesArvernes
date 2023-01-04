@@ -9,10 +9,10 @@ exports.addDog = async newDog => {
   return dog
     .create({
       name: newDog.name,
-      // photo: '',
+      // photo: added in ./crudFiles.js
       description: newDog.description,
       vaccination: newDog.vaccination,
-      // ordinance: '',
+      // ordinance: added in ./crudFiles.js,
     })
     .then(res => {
       return res.dataValues;

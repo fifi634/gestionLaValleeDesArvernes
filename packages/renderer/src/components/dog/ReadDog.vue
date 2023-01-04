@@ -6,7 +6,8 @@ import { colors } from '../../config';
 
 // Get dog
 let dog = ref();
-onBeforeMount(()=>{
+console.log()
+onBeforeMount(() => {
     const dogId = ref(window.location.hash.slice(6));
     searchDog(dogId.value).then(res => { dog.value = res; });
 });
@@ -20,18 +21,22 @@ const modifyDog = () => { isActive.value = !isActive.value };
 <template>
     <div class="allRead-container">
         <div class="readDog-container" v-if="dog">
-            <h1 class="titre">Fiche chien</h1>
+            <div class="title-container">
+                <h1 class="titre">Fiche chien</h1>
+                <img class='dogAvatar' :src="dog.dataValues.photo" alt="photo du chien" />
+            </div>
+
             <div class="input-container">
                 <label for="name" class="label">Nom : </label>
-                <span class="data" name="name">{{dog.dataValues.name}}</span>
+                <span class="data" name="name">{{ dog.dataValues.name }}</span>
             </div>
             <div class="input-container">
                 <label for="desciption" class="label">Description : </label>
-                <span class="data" name="description">{{dog.dataValues.description}}</span>
+                <span class="data" name="description">{{ dog.dataValues.description }}</span>
             </div>
             <div class="input-container">
                 <label for="vaccination" class="label">Vaccination : </label>
-                <span class="data" name="phone">{{dog.dataValues.vaccination}}</span>
+                <span class="data" name="phone">{{ dog.dataValues.vaccination }}</span>
             </div>
             <div class="ctrlRead">
                 <button class="button" @click="modifyDog()">
@@ -39,7 +44,7 @@ const modifyDog = () => { isActive.value = !isActive.value };
                     <span v-else>Ouvrir le panneau de modification</span>
                 </button>
             </div>
-        </div>   
+        </div>
         <div v-if="isActive">
             <ModifyDog />
         </div>
@@ -58,5 +63,18 @@ const modifyDog = () => { isActive.value = !isActive.value };
     border: v-bind('colors.border') solid 1px;
     background-color: v-bind('colors.secondary');
     border-radius: 20px;
+}
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.dogAvatar {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 </style>

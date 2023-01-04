@@ -19,7 +19,7 @@ const vaccination = ref();
 
 // Get files
 const dogFile = ref();
-let ordinanceFiles = [];
+let ordinanceFiles = ref();
 
 
 // const displayFiles = (files = []) => {
@@ -51,15 +51,12 @@ const handleOrdinanceUpload = () => {
     // }
 };
 
-const handleDogUpload = () => {
-    getDogPicture(dogFile);
-};
-
 // When you're clicking on 'Créer' button
 let newDog;
 let goBox = ref(false);
 let goDog = ref(false);
 let errInput = ref(false);
+let errFormat = ref(false);
 
 const addDog = async () => {
     newDog = {
@@ -74,6 +71,7 @@ const addDog = async () => {
             .then((res) => { return res.id })
             .catch((err) => console.log(err))
             ;
+        if (dogFile) getDogPicture(dogFile, id, newDog.name);
         if (goDog.value == true) window.location.href = '#/dog/';
         if (goBox.value == true) window.location.href = '#/box/';
         if (!goDog.value && !goBox.value) window.location.href = '#/dog/' + id;
@@ -92,7 +90,7 @@ const addDog = async () => {
         </div>
         <div class="input-container">
             <label for="photo">Photo : </label>
-            <input type="file" ref="dogFile" v-on:change="handleDogUpload()" name="photo" class="dogInput" />
+            <input type="file" ref="dogFile" name="photo" class="dogInput" accept="image/*" />
         </div>
         <div class="input-container">
             <label for="description" class="label">Description : </label>
@@ -104,8 +102,8 @@ const addDog = async () => {
         </div>
         <div class="input-container">
             <label for="ordinance">Ordonnance : </label>
-            <input type="file" ref="ordinanceFile" multiple="true" v-on:change="handleOrdinanceUpload()"
-                name="ordinance" class="dogInput" />
+            <input type="file" ref="ordinanceFile" multiple="true" accept="image/*, application/pdf" name="ordinance"
+                class="dogInput-multipleFile" />
             <div id="filelist"></div>
         </div>
         <div class="ctrlCreateClient">
@@ -114,6 +112,9 @@ const addDog = async () => {
             <button class="actionButton" @click="addDog(); goBox = true; goDog = false">Créer et ajouter un box</button>
         </div>
         <div v-if="errInput">
+            <p class="errMessage">J'ai besoin d'un d'un nom pour créer un chien.</p>
+        </div>
+        <div v-if="errFormat">
             <p class="errMessage">J'ai besoin d'un d'un nom pour créer un chien.</p>
         </div>
     </div>
@@ -138,5 +139,10 @@ const addDog = async () => {
 
 .dogInput {
     width: 400px;
+}
+
+.dogInput-multipleFile {
+    width: 400px;
+    margin-left: 85px;
 }
 </style>
