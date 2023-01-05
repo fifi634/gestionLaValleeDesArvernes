@@ -5,12 +5,12 @@ import { colors } from '../../config';
 import { createDog, getDogPicture } from '#preload';
 
 // Add active class on menu button for watch rooting 
-const store = useWhereIAm()
+const store = useWhereIAm();
 if (window.location.hash == '#/dog') {
     store.clientActived = false;
     store.homeActived = false;
     store.dogActived = true;
-};
+}
 
 // Get form input
 const name = ref();
@@ -19,7 +19,7 @@ const vaccination = ref();
 
 // Get files
 const dogFile = ref();
-let ordinanceFiles = ref();
+// let ordinanceFiles = ref();
 
 
 // const displayFiles = (files = []) => {
@@ -44,12 +44,12 @@ let ordinanceFiles = ref();
 
 
 
-const handleOrdinanceUpload = () => {
-    // Generate single name of ordinance files
-    // for(let file of ordinanceFiles.value.files) {
-    //     console.log(file);
-    // }
-};
+// const handleOrdinanceUpload = () => {
+//     // Generate single name of ordinance files
+//     for(let file of ordinanceFiles.value.files) {
+//         console.log(file);
+//     }
+// };
 
 // When you're clicking on 'Créer' button
 let newDog;
@@ -64,11 +64,11 @@ const addDog = async () => {
         description: description.value,
         vaccination: vaccination.value,
     };
-
+    console.log(newDog)
     // Check if it has a minimum input required, then add dog and redirection
     if (newDog.name) {
         let id = await createDog(newDog)
-            .then((res) => { return res.id })
+            .then((res) => { return res.id; })
             .catch((err) => console.log(err))
             ;
         if (dogFile) getDogPicture(dogFile, id, newDog.name);

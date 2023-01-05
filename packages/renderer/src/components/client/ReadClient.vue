@@ -6,14 +6,14 @@ import { colors } from '../../config';
 
 // Get client
 let client = ref();
-onBeforeMount(()=>{
+onBeforeMount(() => {
     const clientId = ref(window.location.hash.slice(9));
     searchClient(clientId.value).then(res => { client.value = res; });
 });
 
 // When you're clicking on 'Modifier' button
 let isActive = ref(false);
-const modifyClient = () => { isActive.value = !isActive.value };
+const modifyClient = () => { isActive.value = !isActive.value; };
 </script>
 
 
@@ -23,28 +23,28 @@ const modifyClient = () => { isActive.value = !isActive.value };
             <h1 class="titre-formulaire">Fiche propriétaire</h1>
             <div class="input-container">
                 <label for="fistname" class="label">Prénom : </label>
-                <span class="data" name="firstname">{{client.dataValues.firstname}}</span>
+                <span class="data" name="firstname">{{ client.dataValues.firstname }}</span>
             </div>
             <div class="input-container">
                 <label for="name" class="label">Nom : </label>
-                <span class="data" name="name">{{client.dataValues.name}}</span>
+                <span class="data" name="name">{{ client.dataValues.name }}</span>
             </div>
             <div class="input-container">
                 <label for="phone" class="label">Téléphone : </label>
-                <span class="data" name="phone">{{client.dataValues.phone}}</span>
+                <span class="data" name="phone">{{ client.dataValues.phone }}</span>
             </div>
             <div class="input-container">
                 <label for="email" class="label">E-mail : </label>
-                <span class="data" name="email">{{client.dataValues.email}}</span>
+                <span class="data" name="email">{{ client.dataValues.email }}</span>
             </div>
             <div class="input-container">
                 <label for="address" class="label">Adresse : </label>
                 <div>
-                <span class="address" name="address">
-                    {{client.dataValues.address}}<br />
-                    {{client.dataValues.postalCode}} {{client.dataValues.city}}
-                </span>
-            </div>
+                    <span class="address" name="address">
+                        {{ client.dataValues.address }}<br />
+                        {{ client.dataValues.postalCode }} {{ client.dataValues.city }}
+                    </span>
+                </div>
             </div>
             <div class="ctrlRead">
                 <button class="button" @click="modifyClient()">
@@ -52,7 +52,7 @@ const modifyClient = () => { isActive.value = !isActive.value };
                     <span v-else>Ouvrir le panneau de modification</span>
                 </button>
             </div>
-        </div>   
+        </div>
         <div v-if="isActive">
             <ModifyClient />
         </div>

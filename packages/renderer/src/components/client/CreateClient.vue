@@ -47,7 +47,7 @@ const addClient = async () => {
         else window.location.href = '#/dog/';
     } else {
         errInput.value = true;
-    };
+    }
 };
 </script>
 

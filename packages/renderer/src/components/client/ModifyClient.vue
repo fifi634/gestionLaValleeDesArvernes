@@ -6,7 +6,7 @@ import { colors } from '../../config';
 // Get client
 const client = ref();
 const clientId = ref(window.location.hash.slice(9));
-onBeforeMount(()=>{
+onBeforeMount(() => {
     searchClient(clientId.value).then(res => {
         client.value = res.dataValues;
     });
@@ -20,13 +20,13 @@ let phone = ref();
 let email = ref();
 let address = ref();
 let postalCode = ref();
-let city= ref();
+let city = ref();
 
 
 // When you're clicking on 'Sauvegarder les modifications' button
 let editClient = ref();
-const setClient = async () =>{
-    editClient =ref({
+const setClient = async () => {
+    editClient = ref({
         name: name.value,
         firstname: firstname.value,
         phone: phone.value,
@@ -36,14 +36,14 @@ const setClient = async () =>{
         city: city.value,
     });
     await modifyClient(JSON.stringify(editClient), clientId.value);
-    window.location.reload()
+    window.location.reload();
 };
 
 // When you're clicking on link "Supprimer un propriétaire"
 const deleteClient = () => {
     eraseClient(clientId.value);
     window.location.href = '#/';
-}
+};
 </script>
 
 
@@ -56,11 +56,12 @@ const deleteClient = () => {
         </div>
         <div class="input-container">
             <label for="name" class="label">Nom : </label>
-            <input v-model="name" name="name" :placeholder="client ? client.name : ''"/>
+            <input v-model="name" name="name" :placeholder="client ? client.name : ''" />
         </div>
         <div class="input-container">
             <label for="phone" class="label">Téléphone : </label>
-            <input type="tel" v-model="phone" name="phone" pattern="[0-9]{10}" :placeholder="client ? client.phone : ''" />
+            <input type="tel" v-model="phone" name="phone" pattern="[0-9]{10}"
+                :placeholder="client ? client.phone : ''" />
         </div>
         <div class="input-container">
             <label for="email" class="label">E-mail : </label>
@@ -69,20 +70,11 @@ const deleteClient = () => {
         <div class="input-container">
             <label for="address">Adresse : </label>
             <div>
-                <textarea 
-                    class="address" 
-                    v-model="address" 
-                    name="address" 
-                    :placeholder="client ? client.address : 'adresse'" 
-                />
+                <textarea class="address" v-model="address" name="address"
+                    :placeholder="client ? client.address : 'adresse'" />
                 <div class="city-container">
-                    <input 
-                        type="text" 
-                        class="postalCode" 
-                        v-model="postalCode" 
-                        name="address" 
-                        :placeholder="client ? client.postalCode : 'code'" 
-                    />
+                    <input type="text" class="postalCode" v-model="postalCode" name="address"
+                        :placeholder="client ? client.postalCode : 'code'" />
                     <input type="text" v-model="city" name="address" :placeholder="client ? client.city : 'ville'" />
                 </div>
             </div>
@@ -101,7 +93,7 @@ const deleteClient = () => {
     display: flex;
     flex-direction: column;
     margin: 50px;
-    padding: 20px;    
+    padding: 20px;
     border: v-bind('colors.border') solid 1px;
     background-color: v-bind('colors.secondary');
     border-radius: 20px;
