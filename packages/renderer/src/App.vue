@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import Header from './components/Header.vue';
+import Header from './components/HeaderItem.vue';
 import { colors } from './config.js';
 </script>
 
 
 <template>
   <div class="container">
-    <Header class="header"/>
+    <Header class="header" />
     <router-view class="router"></router-view>
   </div>
 </template>
@@ -53,6 +53,7 @@ import { colors } from './config.js';
   left: 0;
   transition: 0.5s;
   height: 100px;
+
   @media screen and (max-width: 970px) {
     position: inherit;
     height: 100%;
@@ -71,11 +72,21 @@ import { colors } from './config.js';
   }
 }
 
-p, a, input, button, span {
+p,
+a,
+input,
+button,
+span {
   font-family: inter-light, sans-serif;
 }
 
-h1, h2, h3,h4, h5, h6, label {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
   font-family: inter-regular, sans-serif;
   white-space: nowrap;
 }
@@ -83,16 +94,16 @@ h1, h2, h3,h4, h5, h6, label {
 button {
   font-family: inter-semiBold, sans-serif;
   font-size: 1em;
-  color: v-bind('colors.font');  
+  color: v-bind('colors.font');
   padding: 7px 20px;
   margin: 10px 5px;
-  max-width: 200px;  
+  max-width: 200px;
   background: v-bind('colors.backgroundButton');
   box-shadow: 0px 4px 4px v-bind('colors.shadow');
   border: 1px v-bind('colors.border') solid;
   border-radius: 20px;
   transition: 0.5s;
-  
+
   &:hover {
     cursor: pointer;
     background-color: v-bind('colors.primary');
@@ -106,7 +117,8 @@ button {
   }
 }
 
-input, textarea {
+input,
+textarea {
   border: 1px v-bind('colors.border') solid;
   border-radius: 5px;
   padding: 5px;

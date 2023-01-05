@@ -5,11 +5,11 @@ import { useWhereIAm } from '../../store';
 
 // Add active class on menu button for watch rooting 
 const store = useWhereIAm()
-if(window.location.hash == '#/') { 
+if (window.location.hash == '#/') {
     store.homeActived = true;
     store.clientActived = false;
     store.dogActived = false;
- };
+};
 </script>
 
 <template>
@@ -22,6 +22,7 @@ if(window.location.hash == '#/') {
 <style lang="scss">
 .widget-container {
     transition: 0.5s;
+
     @media screen and (max-width: 970px) {
         display: flex;
         flex-direction: column;

@@ -5,12 +5,12 @@ import { colors } from '../../config';
 import { useWhereIAm } from '../../store';
 
 // Add active class on menu button for watch rooting 
-const store = useWhereIAm()
-if(window.location.hash == '#/client') { 
+const store = useWhereIAm();
+if (window.location.hash == '#/client') {
     store.clientActived = true;
     store.homeActived = false;
     store.dogActived = false;
-};
+}
 
 // Get form input
 const name = ref();
@@ -26,7 +26,7 @@ let newClient;
 let goDog = ref(false);
 let errInput = ref(false);
 
-const addClient = async () =>{
+const addClient = async () => {
     newClient = {
         name: name.value,
         firstname: firstname.value,
@@ -36,14 +36,14 @@ const addClient = async () =>{
         postalCode: postalCode.value,
         city: city.value,
     };
-    
+
     // Check if it has a minimum input required
-    if(newClient.name || newClient.firstname) {
+    if (newClient.name || newClient.firstname) {
         let id = await createClient(newClient)
-            .then((res) => { return res.id })
+            .then((res) => { return res.id; })
             .catch((err) => console.log(err))
-        ;
-        if(goDog.value == false) window.location.href = '#/client/' + id;
+            ;
+        if (goDog.value == false) window.location.href = '#/client/' + id;
         else window.location.href = '#/dog/';
     } else {
         errInput.value = true;
@@ -82,8 +82,8 @@ const addClient = async () =>{
             </div>
         </div>
         <div class="ctrlCreateClient">
-            <button @click="addClient(); goDog=false">Créer sans ajout de chien</button>
-            <button class="actionButton" @click="addClient(); goDog=true">Créer et ajouter un chien</button>
+            <button @click="addClient(); goDog = false">Créer sans ajout de chien</button>
+            <button class="actionButton" @click="addClient(); goDog = true">Créer et ajouter un chien</button>
         </div>
         <div v-if="errInput">
             <p class="errMessage">J'ai besoin d'un prénom et d'un nom <br /> pour créer un propriétaire.</p>
@@ -98,7 +98,7 @@ const addClient = async () =>{
     flex-direction: column;
     margin: 120px 50px 50px 50px;
     padding: 20px;
-    width: 400px;  
+    width: 400px;
     border: v-bind('colors.border') solid 1px;
     background-color: v-bind('colors.secondary');
     border-radius: 20px;
@@ -115,8 +115,8 @@ const addClient = async () =>{
 
 .input-container {
     display: flex;
-    margin: 10px 0; 
-    justify-content: space-between;   
+    margin: 10px 0;
+    justify-content: space-between;
     align-items: center;
 }
 

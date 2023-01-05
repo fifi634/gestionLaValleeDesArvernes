@@ -1,4 +1,4 @@
-const {addOrdinanceFiles} = require('../../database/crudFiles');
+// const {addOrdinanceFiles} = require('../../database/crudFiles');
 const {addDogPicture} = require('../../database/crudFiles');
 
 // // Get dog ordinance files

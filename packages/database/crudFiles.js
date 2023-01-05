@@ -12,7 +12,7 @@ const MIME_TYPES = {
 };
 
 // Get application directory
-const ordinanceDir = path.resolve('./packages/renderer/uploadFiles/ordinanceFiles');
+// const ordinanceDir = path.resolve('./packages/renderer/uploadFiles/ordinanceFiles');
 const dogPictureDir = path.resolve('./packages/renderer/uploadFiles/dogPictureFiles');
 
 // Import dog picture

@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import Menu from './Menu.vue';
+import Menu from './MenuItem.vue';
 import { colors } from '../config.js';
 
 // Display component in status bar
 const currentPath = ref(window.location.hash);
 
 window.addEventListener('hashchange', () => {
-    const link = window.location.hash; 
+    const link = window.location.hash;
     currentPath.value = link;
 });
 </script>
